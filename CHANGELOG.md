@@ -1,29 +1,43 @@
 # Changelog
 
-All notable changes to the Sloth-StratAlign-Eido project will be documented in this file.
+All notable changes to 同辙 · StratAlign will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/).
+
+---
+
+## [0.5.0-beta] - 2026-04-17
+
+### Added
+- **AI-Native Scoring Matrix**: Three-dimension scoring model (Rule Explicitness, Data Modality, Decision Frequency) with Data Infrastructure Coefficient for quantitative AI potential assessment
+- **Questionnaire Engine**: Five-module structured dialogue questionnaire (Strategic Decoding, Bottleneck Scan, AI Triage, Coverage Analysis, Investment Portfolio) with 35+ guided questions
+- **Methodology Documentation**: BSC four-perspective indicator system with 20 measurable indicators; Enterprise Architecture (EA) mapping methodology with business-to-IT capability mapping; bidirectional verification method (top-down and bottom-up)
+- **Term Simplification Dictionary**: 24-term dictionary mapping technical jargon to plain-language Chinese equivalents across four categories (Strategy, IT, AI, Finance)
+- **Mini Diagnostic Card**: 200-word condensed diagnostic format with one-line diagnosis, top bottlenecks, top AI opportunities with scores, and recommended first action
+- **Strategy Quality Validation**: Contradiction detection between strategic objectives with causal chain completeness verification
+- **Enhanced Report Template**: Added AI scoring results section, contradiction detection results, and ROI estimation summary
+- **Worked Examples**: Three fully scored AI scenarios (manufacturing quality inspection, financial reporting, customer service) with detailed rationale
+- **Scoring Aggregation**: Multi-scenario ranking with tiered recommendations (Immediate Priority / Short-term / Mid-term / Defer)
+- **Enterprise AI Readiness Score**: Composite scoring formula incorporating top scenarios, data infrastructure, and organizational readiness
+
+### Changed
+- Report template expanded with AI scoring matrix display and contradiction detection section
+- Investment portfolio enhanced with ROI estimates and AI score cross-references
+- Dialogue flow extended with deeper questionnaire steps and module control commands
+- Examples enhanced with full scoring matrix demonstration, contradiction detection walkthrough, and mini diagnostic card sample
+
+---
 
 ## [0.1.0-alpha] - 2026-04-17
 
 ### Added
+- Initial project skeleton and file structure
+- SKILL.md with core concept definition and 5-module framework
+- Basic report template with placeholder sections
+- Basic examples with enterprise scenario outline
+- README (English) and README_zh (Chinese)
+- Project metadata and licensing
 
-- **Core skill definition** (`SKILL.md`) with Anthropic-standard metadata block, five-module pipeline specification, three iron rules, dialogue flow, and output format.
-- **Five-module pipeline architecture**:
-  - M1 Strategic Decoding (战略解码) -- BSC four-perspective decomposition
-  - M2 Bottleneck Scan (瓶颈扫描) -- Severity-rated operational blocker identification
-  - M3 AI Triage (AI分诊) -- Feasibility/Impact/Readiness scoring framework
-  - M4 Coverage Analysis (覆盖度分析) -- IT capability vs. strategic objective mapping
-  - M5 Investment Portfolio (投资组合) -- Three-pool allocation (止血池/换血池/造血池)
-- **Bilingual report template** (`report-template.md`) with placeholder-driven sections for all five modules, iron rules compliance check, and next steps.
-- **Manufacturing case study** (`examples.md`) -- Complete worked example for a fictional mid-size precision manufacturing company (华锐精密制造), demonstrating all five modules with realistic data.
-- **Project documentation**:
-  - `README.md` -- English GitHub-standard README with architecture overview and phase roadmap
-  - `README_zh.md` -- Chinese README with equivalent content
-  - `CHANGELOG.md` -- This file
-  - `LICENSE` -- MIT License
+---
 
-- Note: This is the initial skeleton release (Phase 0). The skill structure is complete but no automated scoring, data connectors, or export capabilities are included.
-- All content is bilingual (Chinese primary, English secondary).
-- Scoring in M3 is qualitative and user-assisted; model-driven scoring is planned for Phase 2.
+*同辙 · StratAlign | sloth-stratalign-eido*

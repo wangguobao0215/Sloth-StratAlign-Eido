@@ -1,174 +1,228 @@
 ---
 name: sloth-stratalign-eido
-version: 0.1.0-alpha
-description: >
-  Sloth-StratAlign-Eido ("同辙 · StratAlign") is an enterprise digital transformation
-  strategic alignment engine. It guides users through a structured five-module pipeline
-  to decode corporate strategy, identify operational bottlenecks, triage AI opportunities,
-  analyze coverage gaps, and compose a balanced investment portfolio spanning quick wins,
-  core IT modernization, and AI innovation bets.
+version: 0.5.0-beta
+description: "同辙 · StratAlign — 企业数字化转型战略对齐引擎 | Enterprise Digital Transformation Strategic Alignment Engine"
+author: sloth-lab
+tags:
+  - digital-transformation
+  - strategic-alignment
+  - enterprise-architecture
+  - ai-native-scoring
+  - balanced-scorecard
 ---
 
-# Sloth-StratAlign-Eido / 同辙 · StratAlign
+# 同辙 · StratAlign
 
-## Overview / 概述
+> 战略不落地，数字化就是空中楼阁。
+> Strategy without execution is a castle in the sky.
 
-This skill implements an enterprise digital transformation strategic alignment engine.
-It walks the user through five sequential analysis modules, enforces three iron rules,
-and produces a structured bilingual Markdown report.
+## 概述 | Overview
 
-The name "同辙" (tong zhe) means "same track" -- aligning digital initiatives with
-corporate strategy so they travel the same path toward shared objectives.
+同辙 · StratAlign 是一款企业数字化转型战略对齐引擎。它通过结构化对话，将企业战略逐层解码为可执行的数字化投资组合，同时利用 AI 原生潜力评分矩阵识别最高价值的智能化切入点。
 
-## Five-Module Pipeline / 五模块管线
+StratAlign is an enterprise digital transformation strategic alignment engine. Through structured dialogue it decodes corporate strategy layer-by-layer into an actionable digital investment portfolio, while leveraging an AI-Native Potential Scoring Matrix to identify the highest-value intelligent entry points.
 
-The engine proceeds through five modules in strict order:
+---
+
+## 核心能力 | Core Capabilities
+
+### 1. 战略解码 | Strategic Decoding (Module 1)
+- 愿景与使命澄清 | Vision & mission clarification
+- 战略主题提取 | Strategic theme extraction
+- BSC 四维目标分解 | BSC four-perspective objective decomposition
+  - 财务 Financial / 客户 Customer / 内部流程 Internal Process / 学习与成长 Learning & Growth
+- **战略质量验证与矛盾检测** | Strategy quality validation with contradiction detection
+  - 自动检测战略目标之间的逻辑矛盾 | Auto-detect logical contradictions between strategic objectives
+  - 验证因果链完整性 | Verify causal chain completeness
+  - 标记缺失维度 | Flag missing perspectives
+
+### 2. 瓶颈扫描 | Bottleneck Scan (Module 2)
+- 业务流程痛点识别 | Business process pain point identification
+- 能力差距分析 | Capability gap analysis
+- 组织与技术债务评估 | Organizational & technical debt assessment
+- 痛点优先级排序 | Pain point prioritization
+
+### 2.5 AI 原生潜力分诊 | AI-Native Potential Triage (Module 2.5)
+
+三维评分矩阵 | 3-Dimension Scoring Matrix:
+
+| 维度 Dimension | 含义 Meaning | 评分 Score |
+|---|---|---|
+| 规则显性度 Rule Explicitness | 业务规则的文档化与标准化程度 | 1-5 |
+| 数据模态 Data Modality | 数据的数字化与结构化水平 | 1-5 |
+| 决策频率 Decision Frequency | 决策发生的时间频率 | 1-5 |
+
+**评分公式 | Scoring Formula:**
 
 ```
-M1 Strategic Decoding    M2 Bottleneck Scan    M3 AI Triage
-   战略解码          -->      瓶颈扫描      -->    AI分诊
-        |                                           |
-        v                                           v
-M4 Coverage Analysis  <-------------------------  M3 output
-   覆盖度分析
-        |
-        v
-M5 Investment Portfolio
-   投资组合
+AI 潜力原始分 = 规则显性度 × 数据模态 × 决策频率
+Raw AI Potential = Rule Explicitness × Data Modality × Decision Frequency
+
+最终得分 = AI 潜力原始分 × 数据基础设施系数
+Final Score = AI Potential × Data Infrastructure Coefficient
 ```
 
-### M1: Strategic Decoding / 战略解码
+**数据基础设施系数 | Data Infrastructure Coefficient:**
 
-Decompose the corporate strategy into measurable objectives using the Balanced Scorecard
-(BSC) four perspectives:
+| 数据状态 Data State | 系数 Coefficient |
+|---|---|
+| 无数据 No data | 0.3 |
+| 分散数据 Scattered data | 0.6 |
+| 结构化数据 Structured data | 1.0 |
 
-1. **Financial / 财务**: Revenue, margin, cost targets
-2. **Customer / 客户**: Satisfaction, retention, market share
-3. **Internal Process / 内部流程**: Efficiency, quality, cycle time
-4. **Learning & Growth / 学习与成长**: Talent, culture, technology capability
+### 3. 覆盖分析 | Coverage Analysis (Module 3)
+- 现有 IT 系统全景扫描 | Current IT landscape scanning
+- 业务能力 → IT 能力映射 | Business capability → IT capability mapping
+- 覆盖率与空白识别 | Coverage rate & gap identification
+- 企业架构 (EA) 对齐度评估 | Enterprise Architecture alignment assessment
 
-Ask the user to provide or confirm 2-4 strategic objectives per perspective.
+### 4. 投资组合 | Investment Portfolio (Module 4)
+- 项目优先级排序 | Project prioritization
+- 投资回报估算 (ROI) | ROI estimation
+- 快赢 / 战略 / 基础 三类分组 | Quick-win / Strategic / Foundation grouping
+- 实施路线图生成 | Implementation roadmap generation
 
-### M2: Bottleneck Scan / 瓶颈扫描
+---
 
-For each strategic objective from M1, identify the top operational bottlenecks by asking:
+## 对话流程 | Dialogue Flow
 
-- What prevents achieving this objective today?
-- Where does the process break down?
-- What are the data gaps or manual workarounds?
+```
+[启动 Start]
+    │
+    ▼
+[Module 1] 战略解码 Strategic Decoding
+    │  ├─ 愿景/使命/价值观澄清
+    │  ├─ 战略主题提取 (3-5 themes)
+    │  ├─ BSC 四维目标展开
+    │  └─ ⚠️ 矛盾检测 Contradiction Detection
+    │
+    ▼
+[Module 2] 瓶颈扫描 Bottleneck Scan
+    │  ├─ 业务流程痛点 (按部门)
+    │  ├─ 能力差距热力图
+    │  └─ 技术/组织债务评估
+    │
+    ▼
+[Module 2.5] AI 原生潜力分诊 AI-Native Triage
+    │  ├─ 三维评分 (规则×数据×频率)
+    │  ├─ 数据基础设施系数修正
+    │  └─ 场景排序 & Top-N 推荐
+    │
+    ▼
+[Module 3] 覆盖分析 Coverage Analysis
+    │  ├─ IT 系统现状盘点
+    │  ├─ 业务能力 ↔ IT 能力映射
+    │  └─ 覆盖率计算 & 空白标记
+    │
+    ▼
+[Module 4] 投资组合 Investment Portfolio
+    │  ├─ 项目分组 (快赢/战略/基础)
+    │  ├─ ROI 估算 & 风险评级
+    │  └─ 路线图 (6/12/18 月)
+    │
+    ▼
+[输出 Output]
+    ├─ 完整诊断报告 Full Diagnostic Report
+    └─ 迷你诊断卡 Mini Diagnostic Card
+```
 
-Rate each bottleneck on a 1-5 severity scale (5 = critical blocker).
+### 双向验证 | Bidirectional Verification
 
-### M3: AI Triage / AI分诊
+- **自顶向下** Top-Down: 战略 → 目标 → AI场景 → IT覆盖 → 投资 (1→2→2.5→3→4)
+- **自底向上** Bottom-Up: 投资 → IT覆盖 → 目标 → 战略 (4→3→2→1)
 
-For each bottleneck rated >= 3, evaluate AI/digital intervention potential:
+---
 
-- **Feasibility / 可行性** (1-5): Is the data available? Is the technology mature?
-- **Impact / 影响力** (1-5): How much would solving this move the strategic needle?
-- **Readiness / 就绪度** (1-5): Does the organization have the capability to adopt?
+## 术语简化 | Term Simplification
 
-Compute a composite score: `AI_Score = (Feasibility + Impact + Readiness) / 3`
+本技能使用通俗语言替代专业术语，降低沟通门槛。
+This skill uses plain language to replace jargon, lowering communication barriers.
 
-### M4: Coverage Analysis / 覆盖度分析
+完整词典见 → `term-dictionary.md`
 
-Map the current IT/digital landscape against the strategic objectives:
+| 专业术语 | 通俗表达 | English |
+|---|---|---|
+| 企业架构 | 企业能力地图 | Enterprise Architecture |
+| 平衡计分卡 | 四维战略仪表盘 | Balanced Scorecard |
+| 数字孪生 | 数字影子 | Digital Twin |
 
-- Which objectives already have adequate digital support?
-- Where are the critical gaps?
-- Are there redundant or overlapping systems?
+---
 
-Produce a coverage matrix: Objectives (rows) vs. Existing Systems (columns).
+## 引用文件 | Referenced Files
 
-### M5: Investment Portfolio / 投资组合
+| 文件 File | 说明 Description |
+|---|---|
+| `methodology.md` | BSC 四维指标体系 & EA 映射方法论 |
+| `questionnaire-engine.md` | 五模块结构化问卷引擎 |
+| `ai-native-scoring.md` | AI 原生潜力评分详细标准 |
+| `term-dictionary.md` | 24 术语简化词典 |
+| `report-template.md` | 完整诊断报告模板 |
+| `report-template-mini.md` | 迷你诊断卡模板 (200 词) |
+| `examples.md` | 示例与演示 |
 
-Allocate recommended initiatives into three investment pools:
+---
 
-| Pool | Chinese | Horizon | Description |
-|------|---------|---------|-------------|
-| Quick Wins | 止血池 | 0-6 months | Low-cost fixes that stop the bleeding |
-| Core IT | 换血池 | 6-18 months | Platform modernization and integration |
-| AI Bets | 造血池 | 12-36 months | Transformative AI/data-driven initiatives |
+## 使用方式 | How to Use
 
-Each initiative should reference back to the bottleneck and strategic objective it addresses.
+### 快速启动 | Quick Start
 
-## Three Iron Rules / 三条铁律
+```
+用户: 我们公司想做数字化转型，不知道从哪里开始。
+User: Our company wants to do digital transformation but doesn't know where to start.
+```
 
-These rules are non-negotiable guardrails applied throughout the entire pipeline:
+技能将自动进入 Module 1 战略解码对话。
+The skill will automatically enter Module 1 Strategic Decoding dialogue.
 
-### Iron Rule 1: Data Sovereignty First / 数据主权第一
+### 指定模块 | Specify Module
 
-- All data classification and ownership must be established before any system recommendation.
-- No external SaaS recommendation without explicit data residency analysis.
-- User must confirm data sensitivity classification for each domain.
+```
+用户: 直接做 AI 场景评估
+User: Jump to AI scenario assessment
+```
 
-### Iron Rule 2: Process Before Systems / 流程先于系统
+技能将进入 Module 2.5 AI 原生潜力分诊。
 
-- Never recommend a system to fix a broken process.
-- Bottleneck analysis (M2) must identify process issues before technology triage (M3).
-- If the root cause is process, prescribe process redesign first.
+### 生成报告 | Generate Report
 
-### Iron Rule 3: Gradual Evolution / 渐进演化
+```
+用户: 生成诊断报告
+User: Generate diagnostic report
+```
 
-- No big-bang transformation recommendations.
-- Every initiative must have an incremental rollout plan.
-- Quick Wins pool must be non-empty -- always start with achievable victories.
+完成所有模块后，可生成完整报告或迷你诊断卡。
 
-## Dialogue Flow / 对话流程
+---
 
-When invoked, follow this interaction sequence:
+## 适用对象 | Target Audience
 
-1. **Greeting & Context Gathering**
-   - Introduce the skill and its purpose.
-   - Ask: "Please describe your company's industry, size, and current strategic priorities."
-   - Ask: "What prompted this digital transformation assessment?"
+- CIO / CTO / CDO（首席数字官）
+- 战略规划部门 | Strategic Planning Department
+- 数字化转型办公室 | Digital Transformation Office
+- IT 规划团队 | IT Planning Team
+- 管理咨询顾问 | Management Consultants
 
-2. **M1: Strategic Decoding**
-   - Guide the user to articulate 2-4 objectives per BSC perspective.
-   - Confirm the objective list before proceeding.
+---
 
-3. **M2: Bottleneck Scan**
-   - For each objective, ask about blockers and pain points.
-   - Assign severity ratings collaboratively with the user.
+## 方法论基础 | Methodology Foundation
 
-4. **M3: AI Triage**
-   - Score each significant bottleneck on Feasibility, Impact, Readiness.
-   - Present the ranked list for user validation.
+- **平衡计分卡 (BSC)** — Kaplan & Norton
+- **企业架构 (EA)** — TOGAF / Zachman
+- **AI 就绪度评估** — 自研三维评分模型
+- **投资组合管理** — MoSCoW + RICE 混合框架
 
-5. **M4: Coverage Analysis**
-   - Ask about existing IT systems and digital tools.
-   - Build the coverage matrix together.
+详细方法论 → `methodology.md`
 
-6. **M5: Investment Portfolio**
-   - Propose initiative allocation across the three pools.
-   - Discuss trade-offs and adjust based on user feedback.
+---
 
-7. **Report Generation**
-   - Compile all findings into the report template.
-   - Present the final report for review.
+## 版本 | Version
 
-## Output Format / 输出格式
+- 当前版本 Current: **0.5.0-beta**
+- 阶段 Phase: Phase 1 — 核心引擎 Core Engine
+- 变更日志 → `CHANGELOG.md`
 
-The final deliverable is a structured Markdown report following the template defined in
-`report-template.md`. The report is bilingual (Chinese primary, English secondary) and
-includes:
+---
 
-- One-line diagnosis summary
-- Strategic decoding results by BSC perspective
-- Bottleneck severity heatmap
-- AI triage scoring table
-- Coverage gap matrix
-- Investment portfolio with three pools
-- Recommended next steps with timeline
+## 许可 | License
 
-## Reference Files / 参考文件
-
-- `report-template.md` -- Report output template with section structure and placeholders
-- `examples.md` -- Manufacturing company case study demonstrating full pipeline execution
-
-## Limitations / 局限性 (v0.1.0-alpha)
-
-- This alpha version provides the structural skeleton only.
-- No automated data connectors or API integrations.
-- Scoring is qualitative and user-assisted, not model-driven.
-- Single report format (Markdown); PDF/PPTX export planned for future phases.
-- No persistent state between sessions.
+MIT License. 详见项目根目录。

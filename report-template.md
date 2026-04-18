@@ -1,188 +1,216 @@
-# {{company_name}} 数字化转型战略对齐报告
-# {{company_name}} Digital Transformation Strategic Alignment Report
-
-> 生成日期 / Generated: {{date}}
-> 引擎版本 / Engine Version: sloth-stratalign-eido v0.1.0-alpha
+# 同辙 · StratAlign — 完整诊断报告模板
+# Full Diagnostic Report Template
 
 ---
 
-## 一句话诊断 / One-Line Diagnosis
+## 报告信息 | Report Information
 
-**{{diagnosis_zh}}**
-
-*{{diagnosis_en}}*
-
----
-
-## 1. 战略解码 / Strategic Decoding (M1)
-
-基于平衡计分卡四维度分解企业战略目标。
-Strategic objectives decomposed across the Balanced Scorecard four perspectives.
-
-### 1.1 财务维度 / Financial Perspective
-
-| # | 战略目标 / Strategic Objective | 关键指标 / Key Metric | 目标值 / Target |
-|---|-------------------------------|----------------------|----------------|
-| F1 | {{financial_obj_1}} | {{financial_metric_1}} | {{financial_target_1}} |
-| F2 | {{financial_obj_2}} | {{financial_metric_2}} | {{financial_target_2}} |
-
-### 1.2 客户维度 / Customer Perspective
-
-| # | 战略目标 / Strategic Objective | 关键指标 / Key Metric | 目标值 / Target |
-|---|-------------------------------|----------------------|----------------|
-| C1 | {{customer_obj_1}} | {{customer_metric_1}} | {{customer_target_1}} |
-| C2 | {{customer_obj_2}} | {{customer_metric_2}} | {{customer_target_2}} |
-
-### 1.3 内部流程维度 / Internal Process Perspective
-
-| # | 战略目标 / Strategic Objective | 关键指标 / Key Metric | 目标值 / Target |
-|---|-------------------------------|----------------------|----------------|
-| P1 | {{process_obj_1}} | {{process_metric_1}} | {{process_target_1}} |
-| P2 | {{process_obj_2}} | {{process_metric_2}} | {{process_target_2}} |
-
-### 1.4 学习与成长维度 / Learning & Growth Perspective
-
-| # | 战略目标 / Strategic Objective | 关键指标 / Key Metric | 目标值 / Target |
-|---|-------------------------------|----------------------|----------------|
-| L1 | {{learning_obj_1}} | {{learning_metric_1}} | {{learning_target_1}} |
-| L2 | {{learning_obj_2}} | {{learning_metric_2}} | {{learning_target_2}} |
+- **企业名称 Company**: {{company_name}}
+- **行业 Industry**: {{industry}}
+- **报告日期 Date**: {{report_date}}
+- **报告版本 Version**: v0.5.0-beta
+- **分析师 Analyst**: 同辙 · StratAlign Engine
 
 ---
 
-## 2. 瓶颈识别 / Bottleneck Identification (M2)
+## 一、战略解码 | Module 1: Strategic Decoding
 
-对每个战略目标识别关键瓶颈，按严重程度评分（1-5，5为最严重）。
-Key bottlenecks identified per strategic objective, rated by severity (1-5, 5 = critical).
+### 1.1 愿景与使命 | Vision & Mission
 
-| # | 关联目标 / Linked Objective | 瓶颈描述 / Bottleneck Description | 根因类型 / Root Cause | 严重度 / Severity |
-|---|---------------------------|----------------------------------|---------------------|------------------|
-| B1 | {{linked_obj_1}} | {{bottleneck_desc_1}} | {{root_cause_1}} | {{severity_1}}/5 |
-| B2 | {{linked_obj_2}} | {{bottleneck_desc_2}} | {{root_cause_2}} | {{severity_2}}/5 |
-| B3 | {{linked_obj_3}} | {{bottleneck_desc_3}} | {{root_cause_3}} | {{severity_3}}/5 |
-| B4 | {{linked_obj_4}} | {{bottleneck_desc_4}} | {{root_cause_4}} | {{severity_4}}/5 |
+| 项目 Item | 内容 Content |
+|---|---|
+| 愿景 Vision | {{vision}} |
+| 使命 Mission | {{mission}} |
+| 核心价值观 Core Values | {{core_values}} |
 
-**根因类型说明 / Root Cause Types:**
-- **流程 / Process** -- 流程设计缺陷或缺失 / Process design flaw or gap
-- **数据 / Data** -- 数据缺失、质量差或孤岛 / Data missing, poor quality, or siloed
-- **系统 / System** -- 系统能力不足或缺失 / System capability gap
-- **人员 / People** -- 技能不足或组织阻力 / Skill gap or organizational resistance
+### 1.2 战略主题 | Strategic Themes
 
----
+| 编号 # | 战略主题 Theme | 优先级 Priority | 时间跨度 Horizon |
+|---|---|---|---|
+| ST-1 | {{theme_1}} | {{priority}} | {{horizon}} |
+| ST-2 | {{theme_2}} | {{priority}} | {{horizon}} |
+| ST-3 | {{theme_3}} | {{priority}} | {{horizon}} |
 
-## 3. AI潜力评分 / AI Potential Scoring (M3)
+### 1.3 BSC 四维目标 | BSC Four-Perspective Objectives
 
-对严重度 >= 3 的瓶颈进行AI/数字化干预潜力评估。
-AI/digital intervention potential assessment for bottlenecks with severity >= 3.
+#### 财务维度 | Financial Perspective
+| 目标 Objective | KPI | 目标值 Target | 当前值 Current |
+|---|---|---|---|
+| {{fin_obj_1}} | {{kpi}} | {{target}} | {{current}} |
 
-| 瓶颈 / Bottleneck | 可行性 / Feasibility | 影响力 / Impact | 就绪度 / Readiness | 综合评分 / AI Score |
-|-------------------|---------------------|----------------|-------------------|-------------------|
-| {{bottleneck_1}} | {{feas_1}}/5 | {{impact_1}}/5 | {{ready_1}}/5 | {{score_1}}/5.0 |
-| {{bottleneck_2}} | {{feas_2}}/5 | {{impact_2}}/5 | {{ready_2}}/5 | {{score_2}}/5.0 |
-| {{bottleneck_3}} | {{feas_3}}/5 | {{impact_3}}/5 | {{ready_3}}/5 | {{score_3}}/5.0 |
+#### 客户维度 | Customer Perspective
+| 目标 Objective | KPI | 目标值 Target | 当前值 Current |
+|---|---|---|---|
+| {{cust_obj_1}} | {{kpi}} | {{target}} | {{current}} |
 
-**评分说明 / Scoring Guide:**
-- 综合评分 = (可行性 + 影响力 + 就绪度) / 3
-- AI Score = (Feasibility + Impact + Readiness) / 3
-- >= 4.0: 高优先级 / High Priority
-- 3.0 - 3.9: 中优先级 / Medium Priority
-- < 3.0: 低优先级或暂缓 / Low Priority or Defer
+#### 内部流程维度 | Internal Process Perspective
+| 目标 Objective | KPI | 目标值 Target | 当前值 Current |
+|---|---|---|---|
+| {{proc_obj_1}} | {{kpi}} | {{target}} | {{current}} |
 
----
+#### 学习与成长维度 | Learning & Growth Perspective
+| 目标 Objective | KPI | 目标值 Target | 当前值 Current |
+|---|---|---|---|
+| {{learn_obj_1}} | {{kpi}} | {{target}} | {{current}} |
 
-## 4. 覆盖度分析 / Coverage Gap Analysis (M4)
+### 1.4 矛盾检测结果 | Contradiction Detection Results
 
-现有IT/数字化能力与战略目标的覆盖矩阵。
-Coverage matrix mapping existing IT/digital capabilities against strategic objectives.
+⚠️ **检测到的矛盾 Contradictions Detected**: {{contradiction_count}}
 
-| 战略目标 / Objective | 现有系统 / Existing Systems | 覆盖状态 / Coverage Status | 差距说明 / Gap Description |
-|---------------------|---------------------------|--------------------------|--------------------------|
-| {{obj_1}} | {{systems_1}} | {{status_1}} | {{gap_1}} |
-| {{obj_2}} | {{systems_2}} | {{status_2}} | {{gap_2}} |
-| {{obj_3}} | {{systems_3}} | {{status_3}} | {{gap_3}} |
-| {{obj_4}} | {{systems_4}} | {{status_4}} | {{gap_4}} |
+| 编号 # | 矛盾类型 Type | 涉及目标 Objectives | 严重程度 Severity | 说明 Description |
+|---|---|---|---|---|
+| C-1 | {{type}} | {{obj_a}} ↔ {{obj_b}} | 🔴 高 / 🟡 中 / 🟢 低 | {{description}} |
 
-**覆盖状态 / Coverage Status Legend:**
-- **充分 / Adequate** -- 现有系统充分支撑 / Existing systems provide adequate support
-- **部分 / Partial** -- 存在功能或数据缺口 / Functional or data gaps exist
-- **缺失 / Missing** -- 无数字化支撑 / No digital support in place
-- **冗余 / Redundant** -- 存在重叠或浪费 / Overlapping or wasteful systems
+**因果链完整性 Causal Chain Completeness**: {{completeness_pct}}%
+
+**缺失维度 Missing Perspectives**: {{missing_perspectives}}
 
 ---
 
-## 5. 投资组合建议 / Investment Portfolio Recommendation (M5)
+## 二、瓶颈扫描 | Module 2: Bottleneck Scan
 
-将推荐举措分配至三个投资池。
-Recommended initiatives allocated across three investment pools.
+### 2.1 业务流程痛点 | Business Process Pain Points
 
-### 5.1 止血池 / Quick Wins Pool (0-6 months)
+| 编号 # | 部门 Department | 痛点 Pain Point | 影响程度 Impact | 发生频率 Frequency |
+|---|---|---|---|---|
+| BP-1 | {{dept}} | {{pain_point}} | 高/中/低 | 日/周/月 |
 
-> 低成本快速止血，立即缓解痛点。
-> Low-cost rapid fixes to stop the bleeding and relieve immediate pain points.
+### 2.2 能力差距分析 | Capability Gap Analysis
 
-| # | 举措 / Initiative | 关联瓶颈 / Linked Bottleneck | 预估投入 / Est. Investment | 预期收益 / Expected Benefit |
-|---|------------------|----------------------------|--------------------------|--------------------------|
-| QW1 | {{qw_initiative_1}} | {{qw_bottleneck_1}} | {{qw_cost_1}} | {{qw_benefit_1}} |
-| QW2 | {{qw_initiative_2}} | {{qw_bottleneck_2}} | {{qw_cost_2}} | {{qw_benefit_2}} |
+| 能力 Capability | 当前水平 Current (1-5) | 目标水平 Target (1-5) | 差距 Gap |
+|---|---|---|---|
+| {{capability}} | {{current}} | {{target}} | {{gap}} |
 
-### 5.2 换血池 / Core IT Pool (6-18 months)
+### 2.3 技术与组织债务 | Technical & Organizational Debt
 
-> 平台现代化与系统集成，夯实数字化基座。
-> Platform modernization and integration to build a solid digital foundation.
-
-| # | 举措 / Initiative | 关联瓶颈 / Linked Bottleneck | 预估投入 / Est. Investment | 预期收益 / Expected Benefit |
-|---|------------------|----------------------------|--------------------------|--------------------------|
-| CI1 | {{ci_initiative_1}} | {{ci_bottleneck_1}} | {{ci_cost_1}} | {{ci_benefit_1}} |
-| CI2 | {{ci_initiative_2}} | {{ci_bottleneck_2}} | {{ci_cost_2}} | {{ci_benefit_2}} |
-
-### 5.3 造血池 / AI Bets Pool (12-36 months)
-
-> 变革性AI/数据驱动创新，创造长期竞争优势。
-> Transformative AI/data-driven innovations to create lasting competitive advantage.
-
-| # | 举措 / Initiative | 关联瓶颈 / Linked Bottleneck | 预估投入 / Est. Investment | 预期收益 / Expected Benefit |
-|---|------------------|----------------------------|--------------------------|--------------------------|
-| AB1 | {{ab_initiative_1}} | {{ab_bottleneck_1}} | {{ab_cost_1}} | {{ab_benefit_1}} |
-| AB2 | {{ab_initiative_2}} | {{ab_bottleneck_2}} | {{ab_cost_2}} | {{ab_benefit_2}} |
-
-### 投资分布建议 / Investment Allocation Guidance
-
-| 投资池 / Pool | 建议占比 / Suggested % | 实际建议 / Recommendation |
-|--------------|----------------------|-------------------------|
-| 止血池 / Quick Wins | {{qw_pct}}% | {{qw_recommendation}} |
-| 换血池 / Core IT | {{ci_pct}}% | {{ci_recommendation}} |
-| 造血池 / AI Bets | {{ab_pct}}% | {{ab_recommendation}} |
+| 类型 Type | 描述 Description | 紧迫度 Urgency | 估计修复成本 Est. Fix Cost |
+|---|---|---|---|
+| 技术债务 | {{tech_debt}} | {{urgency}} | {{cost}} |
+| 组织债务 | {{org_debt}} | {{urgency}} | {{cost}} |
 
 ---
 
-## 6. 下一步行动 / Next Steps
+## 三、AI 原生潜力分诊 | Module 2.5: AI-Native Potential Triage
 
-### 短期 / Short-term (0-30 days)
+### 3.1 评分矩阵总览 | Scoring Matrix Overview
 
-1. {{next_step_short_1}}
-2. {{next_step_short_2}}
-3. {{next_step_short_3}}
+| 场景 Scenario | 规则显性度 Rule (1-5) | 数据模态 Data (1-5) | 决策频率 Freq (1-5) | AI原始分 Raw | 基础设施系数 Coeff | 最终得分 Final |
+|---|---|---|---|---|---|---|
+| {{scenario_1}} | {{rule}} | {{data}} | {{freq}} | {{raw}} | {{coeff}} | **{{final}}** |
+| {{scenario_2}} | {{rule}} | {{data}} | {{freq}} | {{raw}} | {{coeff}} | **{{final}}** |
+| {{scenario_3}} | {{rule}} | {{data}} | {{freq}} | {{raw}} | {{coeff}} | **{{final}}** |
 
-### 中期 / Medium-term (1-6 months)
+> 公式 Formula: 最终得分 = (规则显性度 × 数据模态 × 决策频率) × 数据基础设施系数
+> Final Score = (Rule Explicitness × Data Modality × Decision Frequency) × Data Infrastructure Coefficient
 
-1. {{next_step_mid_1}}
-2. {{next_step_mid_2}}
+### 3.2 AI 场景排序 | AI Scenario Ranking
 
-### 长期 / Long-term (6-18 months)
+| 排名 Rank | 场景 Scenario | 最终得分 Score | 推荐级别 Recommendation |
+|---|---|---|---|
+| 🥇 1 | {{top_scenario}} | {{score}} | 立即启动 Immediate Start |
+| 🥈 2 | {{second_scenario}} | {{score}} | 短期规划 Short-term Plan |
+| 🥉 3 | {{third_scenario}} | {{score}} | 中期储备 Mid-term Reserve |
 
-1. {{next_step_long_1}}
-2. {{next_step_long_2}}
+### 3.3 数据基础设施评估 | Data Infrastructure Assessment
+
+| 数据域 Data Domain | 当前状态 Current State | 系数 Coefficient | 改进建议 Improvement |
+|---|---|---|---|
+| {{domain}} | 无/分散/结构化 | {{coeff}} | {{suggestion}} |
 
 ---
 
-## 铁律合规检查 / Iron Rules Compliance Check
+## 四、覆盖分析 | Module 3: Coverage Analysis
 
-| 铁律 / Iron Rule | 状态 / Status | 说明 / Notes |
-|-----------------|--------------|-------------|
-| 数据主权第一 / Data Sovereignty First | {{rule1_status}} | {{rule1_notes}} |
-| 流程先于系统 / Process Before Systems | {{rule2_status}} | {{rule2_notes}} |
-| 渐进演化 / Gradual Evolution | {{rule3_status}} | {{rule3_notes}} |
+### 4.1 现有 IT 系统清单 | Current IT System Inventory
+
+| 系统 System | 类型 Type | 覆盖业务 Coverage | 状态 Status | 上线年份 Year |
+|---|---|---|---|---|
+| {{system}} | ERP/CRM/MES/... | {{coverage}} | 运行中/待替换/待升级 | {{year}} |
+
+### 4.2 业务能力 → IT 能力映射 | Business → IT Capability Mapping
+
+| 业务能力 Biz Capability | IT 系统 IT System | 覆盖度 Coverage | 空白 Gap |
+|---|---|---|---|
+| {{biz_cap}} | {{it_system}} | ██░░░ {{pct}}% | {{gap_desc}} |
+
+### 4.3 覆盖率汇总 | Coverage Summary
+
+- **整体覆盖率 Overall Coverage**: {{overall_pct}}%
+- **关键空白 Critical Gaps**: {{critical_gaps}}
+- **冗余系统 Redundant Systems**: {{redundant_count}}
 
 ---
 
-*本报告由 同辙 · StratAlign (sloth-stratalign-eido v0.1.0-alpha) 生成。*
-*This report was generated by Sloth-StratAlign-Eido v0.1.0-alpha.*
+## 五、投资组合 | Module 4: Investment Portfolio
+
+### 5.1 项目分组 | Project Grouping
+
+#### 快赢项目 Quick Wins (0-6 月)
+| 项目 Project | 预算 Budget | 预期 ROI | 风险 Risk | AI 得分 Score |
+|---|---|---|---|---|
+| {{project}} | {{budget}} | {{roi}} | 低/中/高 | {{ai_score}} |
+
+#### 战略项目 Strategic (6-18 月)
+| 项目 Project | 预算 Budget | 预期 ROI | 风险 Risk | AI 得分 Score |
+|---|---|---|---|---|
+| {{project}} | {{budget}} | {{roi}} | 低/中/高 | {{ai_score}} |
+
+#### 基础项目 Foundation (持续)
+| 项目 Project | 预算 Budget | 预期 ROI | 风险 Risk | 说明 Note |
+|---|---|---|---|---|
+| {{project}} | {{budget}} | {{roi}} | 低/中/高 | {{note}} |
+
+### 5.2 ROI 估算汇总 | ROI Estimation Summary
+
+| 类别 Category | 总预算 Total Budget | 预期收益 Expected Return | 加权 ROI | 回收期 Payback |
+|---|---|---|---|---|
+| 快赢 Quick Win | {{budget}} | {{return}} | {{roi}}% | {{months}} 月 |
+| 战略 Strategic | {{budget}} | {{return}} | {{roi}}% | {{months}} 月 |
+| 基础 Foundation | {{budget}} | — | 间接 Indirect | — |
+| **合计 Total** | **{{total_budget}}** | **{{total_return}}** | **{{avg_roi}}%** | — |
+
+### 5.3 实施路线图 | Implementation Roadmap
+
+```
+Q1          Q2          Q3          Q4          Q5          Q6
+├── 快赢项目 ──┤
+│   {{qw_1}}   │
+│   {{qw_2}}   │
+├──────── 战略项目 ────────────────────┤
+│         {{st_1}}                      │
+│              {{st_2}}                 │
+├──────────────── 基础项目 ──────────────────────────────────┤
+│                 {{fd_1}}                                    │
+```
+
+---
+
+## 六、双向验证 | Bidirectional Verification
+
+### 自顶向下 Top-Down (1→2→2.5→3→4)
+- ✅ / ⚠️ 战略目标 → 瓶颈关联度: {{td_score}}%
+- ✅ / ⚠️ 瓶颈 → AI场景覆盖度: {{td_ai_score}}%
+- ✅ / ⚠️ AI场景 → IT覆盖关联度: {{td_it_score}}%
+- ✅ / ⚠️ IT覆盖 → 投资关联度: {{td_inv_score}}%
+
+### 自底向上 Bottom-Up (4→3→2→1)
+- ✅ / ⚠️ 投资项目 → IT系统可追溯: {{bu_score_1}}%
+- ✅ / ⚠️ IT系统 → 瓶颈可追溯: {{bu_score_2}}%
+- ✅ / ⚠️ 瓶颈 → 战略目标可追溯: {{bu_score_3}}%
+
+---
+
+## 附录 | Appendix
+
+### A. 术语表 | Glossary
+参见 → `term-dictionary.md`
+
+### B. 方法论 | Methodology
+参见 → `methodology.md`
+
+### C. AI 评分标准 | AI Scoring Criteria
+参见 → `ai-native-scoring.md`
+
+---
+
+*报告由 同辙 · StratAlign v0.5.0-beta 自动生成 | Generated by StratAlign Engine*

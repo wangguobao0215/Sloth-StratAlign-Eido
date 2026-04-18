@@ -1,196 +1,185 @@
-# 案例研究：华锐精密制造有限公司
-# Case Study: HuaRui Precision Manufacturing Co., Ltd.
-
-> 本案例为虚构企业，仅用于演示 同辙 · StratAlign 引擎的完整管线执行过程。
-> This is a fictional company used solely to demonstrate the full pipeline execution
-> of the Sloth-StratAlign-Eido engine.
+# 同辙 · StratAlign — 示例与演示
+# Examples & Demonstrations
 
 ---
 
-## 企业背景 / Company Background
+## 示例企业背景 | Example Company Background
 
-**公司名称 / Company Name:** 华锐精密制造有限公司 / HuaRui Precision Manufacturing Co., Ltd.
-
-**行业 / Industry:** 精密机械制造 / Precision Machinery Manufacturing
-
-**规模 / Size:** 1,200 employees, 3 production facilities, annual revenue ~800M RMB
-
-**现状 / Current Situation:**
-- 传统ERP系统运行10年以上，数据孤岛严重
-- Legacy ERP system running 10+ years, severe data silos
-- 质检依赖人工目视，不良率高于行业平均水平
-- Quality inspection relies on manual visual checks, defect rate above industry average
-- 客户交期达成率仅72%，低于行业标杆85%
-- On-time delivery rate only 72%, below industry benchmark of 85%
-- 管理层提出"三年数字化转型"战略
-- Management announced a "3-Year Digital Transformation" strategy
-
-**触发本次评估的原因 / Assessment Trigger:**
-CEO在年度战略会上提出："我们投了很多钱在IT上，但感觉没有对准战略方向。"
-The CEO stated at the annual strategy meeting: "We have invested heavily in IT, but it
-doesn't feel aligned with our strategic direction."
+- **企业**: 华远精密制造有限公司 (虚构)
+- **行业**: 精密制造 (汽车零部件)
+- **规模**: 2000 人, 年营收 15 亿元
+- **现状**: ERP (SAP, 2018), MES (自研, 2020), CRM (Salesforce, 2019), 无统一数据平台
 
 ---
 
-## M1: 战略解码 / Strategic Decoding
+## 一、战略解码示例 | Strategic Decoding Example
 
-### 财务维度 / Financial Perspective
+### 1.1 战略主题
 
-| # | 战略目标 | Strategic Objective | 关键指标 | 目标值 |
-|---|---------|-------------------|---------|-------|
-| F1 | 提升毛利率 | Improve gross margin | 毛利率 / Gross margin % | 从22%提升至28% / 22% -> 28% |
-| F2 | 降低运营成本 | Reduce operating costs | 万元产值能耗 / Energy cost per 10K RMB output | 降低15% / Reduce 15% |
+| 编号 | 战略主题 | 优先级 | 时间跨度 |
+|---|---|---|---|
+| ST-1 | 智能制造升级 | 高 | 2024-2026 |
+| ST-2 | 客户体验数字化 | 高 | 2024-2025 |
+| ST-3 | 供应链韧性建设 | 中 | 2025-2027 |
 
-### 客户维度 / Customer Perspective
+### 1.2 BSC 四维目标
 
-| # | 战略目标 | Strategic Objective | 关键指标 | 目标值 |
-|---|---------|-------------------|---------|-------|
-| C1 | 提升交付准时率 | Improve on-time delivery | 交期达成率 / OTD rate | 72% -> 90% |
-| C2 | 提升客户满意度 | Improve customer satisfaction | NPS评分 / NPS score | 从32提升至55 / 32 -> 55 |
-
-### 内部流程维度 / Internal Process Perspective
-
-| # | 战略目标 | Strategic Objective | 关键指标 | 目标值 |
-|---|---------|-------------------|---------|-------|
-| P1 | 降低产品不良率 | Reduce defect rate | 不良率 / Defect rate (PPM) | 从3,500降至800 / 3,500 -> 800 PPM |
-| P2 | 缩短生产周期 | Shorten production cycle | 平均交付周期 / Avg lead time | 从45天降至30天 / 45 -> 30 days |
-
-### 学习与成长维度 / Learning & Growth Perspective
-
-| # | 战略目标 | Strategic Objective | 关键指标 | 目标值 |
-|---|---------|-------------------|---------|-------|
-| L1 | 建设数字化人才梯队 | Build digital talent pipeline | 数字化技能认证率 / Digital skill cert. rate | 从5%提升至30% / 5% -> 30% |
-| L2 | 建立数据驱动文化 | Establish data-driven culture | 数据决策采用率 / Data-driven decision rate | 从10%提升至60% / 10% -> 60% |
+| 维度 | 目标 | KPI | 目标值 |
+|---|---|---|---|
+| 财务 | 提升利润率 | 毛利率 | ≥ 25% (当前 18%) |
+| 客户 | 提升交付准时率 | OTD | ≥ 98% (当前 89%) |
+| 流程 | 降低质量缺陷率 | PPM | ≤ 50 (当前 320) |
+| 成长 | 数字化人才占比 | 比例 | ≥ 20% (当前 8%) |
 
 ---
 
-## M2: 瓶颈识别 / Bottleneck Identification
+## 二、矛盾检测示例 | Contradiction Detection Example
 
-| # | 关联目标 | 瓶颈描述 | 根因类型 | 严重度 |
-|---|---------|---------|---------|-------|
-| B1 | P1 不良率 | 质检依赖人工目视，漏检率高，且无法追溯具体工位 Quality inspection relies on manual visual checks with high miss rate, no traceability to specific workstation | 流程 + 数据 / Process + Data | 5/5 |
-| B2 | C1 交付准时率 | 生产排程依赖Excel手工排单，无法实时响应插单和异常 Production scheduling uses manual Excel, cannot respond to rush orders or exceptions in real-time | 系统 / System | 5/5 |
-| B3 | F1 毛利率 | 原材料采购缺乏市场价格数据支撑，议价能力弱 Raw material procurement lacks market price data support, weak bargaining power | 数据 / Data | 4/5 |
-| B4 | F2 能耗 | 设备运行参数未采集，无法进行能耗优化 Equipment operating parameters not collected, cannot optimize energy consumption | 数据 + 系统 / Data + System | 4/5 |
-| B5 | P2 生产周期 | 工序间信息传递靠纸质工单，在制品状态不透明 Inter-process information transfer relies on paper work orders, WIP status opaque | 流程 / Process | 4/5 |
-| B6 | L1 数字化人才 | 无系统化培训体系，员工对数字化工具抵触 No systematic training program, employee resistance to digital tools | 人员 / People | 3/5 |
-| B7 | C2 客户满意度 | 客户投诉处理无闭环跟踪，平均响应时间72小时 Customer complaint handling has no closed-loop tracking, avg response time 72 hours | 流程 + 系统 / Process + System | 3/5 |
+### 检测到的矛盾
 
----
+| # | 矛盾类型 | 涉及目标 | 严重程度 | 说明 |
+|---|---|---|---|---|
+| C-1 | 资源冲突 | ST-1 (智能制造) ↔ ST-3 (供应链韧性) | 🟡 中 | 两者均需大量 IT 资源投入，当前团队规模难以同时支撑。建议错峰推进：先集中资源于 ST-1，ST-3 延后 6 个月启动。 |
+| C-2 | 目标矛盾 | 降低成本 ↔ 提升数字化人才占比 | 🟢 低 | 短期内人才投入增加成本，但中长期通过自动化可回收。属于阶段性矛盾，可通过 ROI 模型论证化解。 |
 
-## M3: AI潜力评分 / AI Potential Scoring
+### 因果链完整性检查
 
-仅对严重度 >= 3 的瓶颈评分。
-Scoring only bottlenecks with severity >= 3.
+```
+战略主题: 智能制造升级
+  └─ 财务目标: 提升利润率 ✅
+  └─ 客户目标: 提升交付准时率 ✅
+  └─ 流程目标: 降低质量缺陷率 ✅
+  └─ 成长目标: 数字化人才占比 ✅
+  因果链完整性: 100%
 
-| 瓶颈 | Bottleneck | 可行性 | 影响力 | 就绪度 | 综合评分 |
-|------|-----------|-------|-------|-------|---------|
-| B1 质检漏检 / QC miss rate | 4/5 | 5/5 | 3/5 | **4.0** |
-| B2 排程手工 / Manual scheduling | 4/5 | 5/5 | 4/5 | **4.3** |
-| B3 采购议价 / Procurement pricing | 3/5 | 4/5 | 3/5 | **3.3** |
-| B4 能耗优化 / Energy optimization | 3/5 | 3/5 | 2/5 | **2.7** |
-| B5 纸质工单 / Paper work orders | 5/5 | 4/5 | 4/5 | **4.3** |
-| B6 人才培训 / Talent training | 3/5 | 3/5 | 3/5 | **3.0** |
-| B7 投诉管理 / Complaint mgmt | 4/5 | 3/5 | 4/5 | **3.7** |
-
-**排序 / Ranked by AI Score:**
-1. B2 排程 / Scheduling (4.3) -- 高优先级 / High Priority
-2. B5 工单 / Work orders (4.3) -- 高优先级 / High Priority
-3. B1 质检 / QC (4.0) -- 高优先级 / High Priority
-4. B7 投诉 / Complaints (3.7) -- 中优先级 / Medium Priority
-5. B3 采购 / Procurement (3.3) -- 中优先级 / Medium Priority
-6. B6 人才 / Talent (3.0) -- 中优先级 / Medium Priority
-7. B4 能耗 / Energy (2.7) -- 低优先级 / Low Priority (deferred)
+战略主题: 客户体验数字化
+  └─ 财务目标: (未明确关联) ⚠️
+  └─ 客户目标: 提升满意度 ✅
+  └─ 流程目标: 缩短响应时间 ✅
+  └─ 成长目标: (未明确关联) ⚠️
+  因果链完整性: 50% — 建议补充财务和成长维度目标
+```
 
 ---
 
-## M4: 覆盖度分析 / Coverage Gap Analysis
+## 三、AI 原生潜力评分矩阵演示 | AI Scoring Matrix Demonstration
 
-| 战略目标 | 现有系统 | 覆盖状态 | 差距说明 |
-|---------|---------|---------|---------|
-| F1 毛利率 | 传统ERP财务模块 / Legacy ERP Finance | 部分 / Partial | 成本归集不精确，无实时毛利分析 / Cost allocation imprecise, no real-time margin analysis |
-| F2 能耗 | 无 / None | 缺失 / Missing | 无设备数据采集系统 / No equipment data collection system |
-| C1 交付准时率 | ERP生产模块 / ERP Production | 部分 / Partial | 无APS排程，依赖手工Excel / No APS scheduling, relies on manual Excel |
-| C2 客户满意度 | 无CRM系统 / No CRM | 缺失 / Missing | 客户投诉用邮件跟踪 / Complaints tracked via email |
-| P1 不良率 | 无 / None | 缺失 / Missing | 无数字化质检系统 / No digital QC system |
-| P2 生产周期 | ERP工单模块 / ERP Work Order | 部分 / Partial | 纸质流转，无实时追踪 / Paper-based flow, no real-time tracking |
-| L1 数字化人才 | 无 / None | 缺失 / Missing | 无数字化学习平台 / No digital learning platform |
-| L2 数据文化 | 无BI工具 / No BI tools | 缺失 / Missing | 无自助数据分析能力 / No self-service analytics |
+### 3.1 候选场景评分
 
-**覆盖率统计 / Coverage Summary:**
-- 充分 / Adequate: 0/8 (0%)
-- 部分 / Partial: 3/8 (37.5%)
-- 缺失 / Missing: 5/8 (62.5%)
+华远精密识别了 5 个候选 AI 场景，数据基础设施系数为 **0.6** (有 MES/ERP 但数据分散)。
 
----
+| 场景 | 规则显性度 | 数据模态 | 决策频率 | AI原始分 | 系数 | 最终得分 | 排名 |
+|---|---|---|---|---|---|---|---|
+| 成品外观质检 | 4 | 3 | 5 | 60 | 0.6 | **36.0** | 🥇 1 |
+| 设备预测维护 | 3 | 4 | 4 | 48 | 0.6 | **28.8** | 🥈 2 |
+| 智能排产优化 | 3 | 3 | 3 | 27 | 0.6 | **16.2** | 🥉 3 |
+| 供应商风险预警 | 2 | 2 | 2 | 8 | 0.6 | **4.8** | 4 |
+| 财务智能对账 | 5 | 4 | 2 | 40 | 0.6 | **24.0** | — |
 
-## M5: 投资组合建议 / Investment Portfolio Recommendation
+> 注: 财务智能对账虽原始分高 (40)，但决策频率低，实际排名需综合考量。按最终得分排在第 4，但可作为快赢项目 (规则和数据条件极好)。
 
-### 止血池 / Quick Wins (0-6 months)
+### 3.2 评分解读
 
-| # | 举措 | Initiative | 关联瓶颈 | 预估投入 | 预期收益 |
-|---|-----|-----------|---------|---------|---------|
-| QW1 | 电子工单替代纸质工单 | Digital work orders replacing paper | B5 | 50万 / 500K RMB | 工序流转时间减少40% / Inter-process flow time -40% |
-| QW2 | 客户投诉闭环管理小程序 | Customer complaint tracking mini-app | B7 | 20万 / 200K RMB | 响应时间从72h降至24h / Response time 72h -> 24h |
-| QW3 | 自助BI看板（基于现有ERP数据） | Self-service BI dashboard on existing ERP data | L2 | 30万 / 300K RMB | 管理层数据可视化覆盖率达80% / Mgmt data visibility 80% |
+**成品外观质检 (36.0 — 短期规划)**:
+- 优势: 规则显性度高 (质量标准明确)、决策频率极高 (每件产品)
+- 短板: 图像数据未结构化存储
+- 建议: 投资工业相机 + 图像存储，6个月内启动 AI 视觉 POC
 
-### 换血池 / Core IT (6-18 months)
+**设备预测维护 (28.8 — 中期储备)**:
+- 优势: 数据模态较好 (MES 有设备运行数据)、频率高
+- 短板: 维护规则依赖老技师经验
+- 建议: 先梳理设备维护知识库，再引入预测模型
 
-| # | 举措 | Initiative | 关联瓶颈 | 预估投入 | 预期收益 |
-|---|-----|-----------|---------|---------|---------|
-| CI1 | APS高级排程系统实施 | APS advanced scheduling system | B2 | 300万 / 3M RMB | 交期达成率提升至85%+ / OTD rate to 85%+ |
-| CI2 | MES制造执行系统 | Manufacturing Execution System | B5, P2 | 500万 / 5M RMB | 生产周期缩短25% / Production cycle -25% |
-| CI3 | CRM客户关系管理系统 | Customer Relationship Management | B7, C2 | 150万 / 1.5M RMB | NPS提升至45+ / NPS to 45+ |
-
-### 造血池 / AI Bets (12-36 months)
-
-| # | 举措 | Initiative | 关联瓶颈 | 预估投入 | 预期收益 |
-|---|-----|-----------|---------|---------|---------|
-| AB1 | AI视觉质检系统 | AI Visual Quality Inspection | B1 | 400万 / 4M RMB | 不良率降至1,000 PPM以下 / Defect rate < 1,000 PPM |
-| AB2 | 智能采购价格预测 | Intelligent Procurement Price Prediction | B3 | 200万 / 2M RMB | 采购成本降低5-8% / Procurement cost -5-8% |
-| AB3 | 设备IoT + 能耗优化 | Equipment IoT + Energy Optimization | B4 | 350万 / 3.5M RMB | 万元产值能耗降低15% / Energy per 10K output -15% |
-
-### 投资分布 / Investment Allocation
-
-| 投资池 / Pool | 金额 / Amount | 占比 / % | 建议 / Recommendation |
-|--------------|-------------|---------|---------------------|
-| 止血池 / Quick Wins | 100万 / 1M RMB | 5% | 立即启动，3个月内见效 / Start immediately, results within 3 months |
-| 换血池 / Core IT | 950万 / 9.5M RMB | 47% | 分阶段实施，APS优先 / Phased rollout, APS first |
-| 造血池 / AI Bets | 950万 / 9.5M RMB | 48% | MES上线后启动AI质检POC / Launch AI QC POC after MES go-live |
-
-**总投资 / Total Investment: ~2,000万 / ~20M RMB over 3 years**
+**财务智能对账 (24.0 — 作为快赢)**:
+- 优势: 规则完全显性化、数据质量高
+- 短板: 频率低 (月度)，AI 替代价值有限
+- 建议: 适合 RPA + 简单规则引擎，3个月内可见效
 
 ---
 
-## 铁律合规检查 / Iron Rules Compliance Check
-
-| 铁律 / Iron Rule | 状态 / Status | 说明 / Notes |
-|-----------------|--------------|-------------|
-| 数据主权第一 | PASS | 所有系统建议均为私有化部署，客户数据不出厂区 / All system recommendations are private deployment, customer data stays on-premises |
-| 流程先于系统 | PASS | B5纸质工单先做流程电子化（QW1），再上MES系统（CI2） / Paper work orders digitized (QW1) before MES deployment (CI2) |
-| 渐进演化 | PASS | 三池分层推进，止血池非空且最先启动 / Three-pool phased approach, Quick Wins pool is non-empty and starts first |
+## 四、迷你诊断卡示例 | Mini Diagnostic Card Example
 
 ---
 
-## 下一步行动 / Next Steps
-
-### 短期 / Short-term (0-30 days)
-
-1. 组建数字化转型项目管理办公室 (PMO) / Establish Digital Transformation PMO
-2. 启动QW1电子工单项目招标 / Initiate QW1 digital work order project RFP
-3. 完成全厂数据资产盘点与分类 / Complete factory-wide data asset inventory and classification
-
-### 中期 / Medium-term (1-6 months)
-
-1. QW1-QW3全部上线 / QW1-QW3 all go-live
-2. APS选型与POC验证 / APS vendor selection and POC validation
-
-### 长期 / Long-term (6-18 months)
-
-1. MES + APS集成上线 / MES + APS integrated go-live
-2. AI视觉质检POC启动（需MES数据支撑） / AI Visual QC POC launch (requires MES data support)
+**企业 Company**: 华远精密制造有限公司 | **行业 Industry**: 精密制造 | **日期 Date**: 2024-06-15
 
 ---
 
-*本案例由 同辙 · StratAlign (sloth-stratalign-eido v0.1.0-alpha) 生成。*
-*This case study was generated by Sloth-StratAlign-Eido v0.1.0-alpha.*
+### 一句话诊断 | One-Line Diagnosis
+
+> 战略清晰但数字化执行断层：数据分散 (系数 0.6) 制约 AI 场景落地，质检环节 AI 潜力最高，建议优先补齐图像数据基础设施。
+> Clear strategy but digital execution gap: scattered data (coeff 0.6) constrains AI adoption. Quality inspection has highest AI potential. Prioritize image data infrastructure.
+
+---
+
+### Top 3 瓶颈 | Top 3 Bottlenecks
+
+| # | 瓶颈 | 影响 |
+|---|---|---|
+| 1 | 数据分散无统一平台 | 所有 AI 场景落地受阻 |
+| 2 | 质检依赖人工目视 | PPM 居高不下，客户投诉增多 |
+| 3 | IT 团队规模不足 (仅 12 人) | 无力同时推进多个数字化项目 |
+
+---
+
+### Top 3 AI 机会 | Top 3 AI Opportunities
+
+| # | 场景 | 得分 | 可行性 |
+|---|---|---|---|
+| 1 | 成品外观质检 | 36.0/125 | 需先建图像数据基础 |
+| 2 | 设备预测维护 | 28.8/125 | 需先梳理维护知识库 |
+| 3 | 财务智能对账 | 24.0/125 | 条件成熟，可立即启动 |
+
+---
+
+### 推荐首要行动
+
+**行动**: 启动"财务智能对账" RPA 快赢项目 + 同步建设图像数据采集基础设施
+
+**预期效果**: 财务对账效率提升 70%；为质检 AI 奠定数据基础
+
+**预计周期**: 快赢 3 个月 / 基础设施 6 个月
+
+**预估投入**: 快赢 30 万元 / 基础设施 80 万元
+
+---
+
+## 五、覆盖分析示例 | Coverage Analysis Example
+
+```
+业务能力            SAP-ERP  MES    CRM    其他    空白
+─────────────────────────────────────────────────────
+订单管理             ██       ░░     ██     ░░      
+生产计划             ██       ██     ░░     ░░      
+质量检测             ░░       █░     ░░     ░░     ⚠️ 图像检测无覆盖
+设备管理             ░░       ██     ░░     ░░      
+客户服务             ░░       ░░     ██     ░░      
+供应链可视化         █░       ░░     ░░     ░░     ⚠️ 缺全链可视
+智能预测/AI          ░░       ░░     ░░     ░░     ⚠️ 完全空白
+数据分析/BI          ░░       ░░     ░░     Excel  ⚠️ 无统一 BI
+
+整体覆盖率: 52%
+关键空白: 3 项 (智能预测、全链可视化、统一 BI)
+冗余覆盖: 1 项 (订单管理在 ERP 和 CRM 中重复)
+```
+
+---
+
+## 六、投资组合示例 | Investment Portfolio Example
+
+| 类别 | 项目 | 预算 | 预期 ROI | AI 得分 | 周期 |
+|---|---|---|---|---|---|
+| 快赢 | 财务智能对账 RPA | 30万 | 280% | 24.0 | 3个月 |
+| 快赢 | CRM 数据清洗 | 15万 | 150% | — | 2个月 |
+| 战略 | AI 视觉质检系统 | 200万 | 320% | 36.0 | 12个月 |
+| 战略 | 统一数据平台 | 300万 | 间接 | — | 18个月 |
+| 基础 | 图像数据基础设施 | 80万 | 间接 | — | 6个月 |
+| 基础 | IT 团队扩建 (招聘 8 人) | 120万/年 | 间接 | — | 持续 |
+
+**总投资**: 约 745 万元 (18 个月)
+**预计综合 ROI**: 快赢项目 210%，战略项目 320% (3 年)
+
+---
+
+*示例基于虚构企业，仅作演示用途 | Examples based on fictional company, for demonstration only*
+*同辙 · StratAlign v0.5.0-beta*

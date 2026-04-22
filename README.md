@@ -15,7 +15,7 @@
   <em>慢一点，深一度</em>
 </p>
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/badge/version-1.4.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ---

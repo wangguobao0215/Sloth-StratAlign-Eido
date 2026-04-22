@@ -1,8 +1,37 @@
 # 同辙 · StratAlign — 结构化问卷引擎
 # Questionnaire Engine
 
-> 六模块渐进式对话问卷，中文为主、英文辅助。支持行业预填、顾问模式切换与数据完整性校验。
-> Six-module progressive dialogue questionnaire. Chinese primary, English hints. Supports industry pre-fill, consultant mode switching, and data completeness validation.
+> 六模块渐进式对话问卷，支持中文、中英双语、英文三种成果物语言。支持客户名称智能补全、行业自动识别、行业预填、顾问模式切换与数据完整性校验。
+> Six-module progressive dialogue questionnaire. Supports Chinese, Bilingual, and English deliverable languages. Features client name auto-completion, industry auto-detection, industry pre-fill, consultant mode switching, and data completeness validation.
+
+<!-- LANGUAGE HANDLING INSTRUCTIONS:
+This file contains bilingual content (Chinese + English) for each question.
+The engine MUST respect the user's language selections from SKILL.md Language Configuration:
+
+INTERACTION LANGUAGE (how the engine talks to the user):
+- CHINESE MODE: Use only the Chinese text (bold lines) for questions, options, and hints.
+  Append English abbreviations/terms in parentheses only where helpful for professional clarity.
+- ENGLISH MODE: Use only the English text (italic lines) for questions, options, and hints.
+  Do NOT include Chinese text in the output.
+
+DELIVERABLE LANGUAGE (how generated artifacts are formatted):
+- CHINESE: Output deliverables in Chinese only.
+- BILINGUAL: Output deliverables with Chinese as primary and English in parallel.
+- ENGLISH: Output deliverables in English only.
+
+- DELIVERABLE OVERRIDE: If user requests a specific language for the questionnaire output
+  (via "用中文生成" / "generate in Chinese", "用英文生成" / "generate in English",
+  or "用双语生成" / "generate bilingual"),
+  use that language for the output file regardless of the default setting.
+
+All question tags [必答][建议][选填] should be rendered as:
+  - Chinese mode: [必答] [建议] [选填]
+  - English mode: [Required] [Recommended] [Optional]
+
+All type tags should be rendered as:
+  - Chinese mode: [开放] [选择] [量表] [列表] [数值]
+  - English mode: [Open] [Choice] [Scale] [List] [Numeric]
+-->
 
 ---
 
@@ -35,40 +64,190 @@
 
 ---
 
-## Module 0: 行业检测与顾问配置 | Industry Detection & Consultant Setup
+## Module 0: 客户识别与顾问配置 | Client Recognition & Consultant Setup
 
-> 目标: 快速确定行业背景、企业规模与顾问工作模式，加载行业剧本，减少冗余提问。
-> Goal: Quickly determine industry context, company size, and consultant working mode. Load industry playbook and reduce redundant questioning.
+> 目标: 通过客户名称智能识别企业身份和所属行业，快速确定企业规模与顾问工作模式，加载行业剧本，减少冗余提问。
+> Goal: Intelligently identify client identity and industry from the client name, quickly determine company size and consultant working mode, load industry playbook, and reduce redundant questioning.
 
-### Q0.1 — 行业选择 Industry Selection
+### Q0.1 — 客户名称 Client Name
 `[必答]`
-**贵公司所属行业是？**
-*What industry does the company operate in?*
-`[选择 Choice]`
-- A. 制造业 Manufacturing
-- B. 零售与消费 Retail & Consumer
-- C. 金融服务 Financial Services
-- D. 医疗健康 Healthcare
-- E. 专业服务 Professional Services
-- F. 科技与互联网 Technology & Internet
-- G. 其他 Other → 请注明 (please specify) `[开放 Open]`
+**请输入您此次诊断的客户名称（公司名、简称或品牌名均可）:**
+*Please enter the client name for this engagement (company name, abbreviation, or brand name):*
+`[开放 Open]`
 
+> **引擎行为 Engine Behavior — 智能补全与确认 Auto-Completion & Confirmation:**
+>
+> ⚠️ **必须联网搜索 MUST WebSearch**: 引擎**必须使用 WebSearch** 查询企业正式名称，搜索词模板: `"{用户输入}" 工商注册 全称` 或 `"{用户输入}" 公司 官网`。**严禁仅凭训练数据猜测公司全称**。
+> ⚠️ **MUST WebSearch**: The engine **MUST use WebSearch** to look up the formal registered name. Query templates: `"{input}" registered company official name` or `"{input}" company official website`. **NEVER guess the full name from training data alone**.
+>
+> 1. **自动补全正式名称**: 引擎根据用户输入的名称，**先执行 WebSearch**，再根据搜索结果补全为企业的正式注册名称（工商注册名/法人全称）。
+>    *Auto-complete formal name*: The engine **first performs WebSearch**, then auto-completes the input to the company's official registered name based on search results.
+>
+> 2. **处理简称歧义**: 如果简称可能对应多家企业，引擎列出候选列表供用户确认。
+>    *Handle abbreviation ambiguity*: If the abbreviation could match multiple companies, the engine presents a candidate list for user confirmation.
+>
+>    示例 Example:
+>    ```
+>    用户输入: "华为"
+>    User input: "Huawei"
+>
+>    引擎回复 Engine response:
+>    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>    "华为" 可能指以下企业，请确认:
+>    "Huawei" could refer to the following — please confirm:
+>
+>      A. 华为技术有限公司 (Huawei Technologies Co., Ltd.)
+>         — 全球 ICT 基础设施和智能终端提供商
+>      B. 华为投资控股有限公司 (Huawei Investment & Holding Co., Ltd.)
+>         — 华为集团控股母公司
+>      C. 其他 Other — 请补充完整名称 Please provide the full name
+>    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>    ```
+>
+> 3. **唯一匹配确认**: 如果名称匹配唯一，直接展示补全结果请用户确认。
+>    *Unique match confirmation*: If the name matches uniquely, display the result and ask user to confirm.
+>
+>    示例 Example:
+>    ```
+>    用户输入: "三一重工"
+>    User input: "Sany Heavy Industry"
+>
+>    引擎回复 Engine response:
+>    已识别为: 三一重工股份有限公司 (Sany Heavy Industry Co., Ltd.)
+>    Identified as: Sany Heavy Industry Co., Ltd.
+>    请确认是否正确？(Y/N)
+>    Please confirm — is this correct? (Y/N)
+>    ```
+
+### Q0.2 — 行业识别与确认 Industry Detection & Confirmation
+`[必答]`
+
+> **引擎行为 Engine Behavior — 自动识别:**
+>
+> ⚠️ **必须联网搜索 MUST WebSearch**: 引擎**必须使用 WebSearch** 搜索客户行业信息，搜索词: `"{公司全称}" 主营业务 行业分类`。结合搜索结果与公司名称特征进行行业判定。**不得仅凭公司名称中的关键词推断行业**。
+> ⚠️ **MUST WebSearch**: The engine **MUST use WebSearch** to search for client industry info. Query: `"{company}" main business industry classification`. Combine search results with company name characteristics for industry determination. **Do NOT infer industry solely from keywords in the company name**.
+>
+> 引擎根据 Q0.1 确认的客户正式名称，**先执行 WebSearch 获取主营业务信息**，再映射到行业剧本库。
+> The engine **first performs WebSearch to obtain main business info** based on the confirmed formal name from Q0.1, then maps it to the industry playbook library.
+>
+> **行业映射规则 Industry Mapping Rules:**
+>
+> | 识别结果 Detection Result | 行业剧本 Playbook | 文件 File |
+> |---|---|---|
+> | 制造业 (含装备制造、电子、汽车零部件等) | 制造业 Manufacturing | `manufacturing.md` |
+> | 零售、快消、电商、餐饮 | 零售与消费 Retail | `retail.md` |
+> | 银行、保险、证券、基金 | 金融服务 Financial Services | `financial-services.md` |
+> | 医院、制药、医疗器械、健康服务 | 医疗健康 Healthcare | `healthcare.md` |
+> | 咨询、律所、会计、设计、广告 | 专业服务 Professional Services | `professional-services.md` |
+> | 电力、电网、油气、水务、新能源、矿业 | 能源与公用事业 Energy & Utilities | `energy-utilities.md` |
+> | 货运、快递、航运、仓储、冷链、物流 | 交通运输与物流 Transportation & Logistics | `transportation-logistics.md` |
+> | 房地产开发、工程建筑、物业管理 | 房地产与建筑 Real Estate & Construction | `real-estate-construction.md` |
+> | 无法明确归类 | 请用户手动选择 User selects manually | — |
+>
+> **多业态企业处理 Multi-Business Enterprises:**
+>
+> 对于涉及多个业态的企业（如海尔：智慧家庭 + 工业互联网 + 大健康），引擎应：
+> For enterprises with multiple business lines (e.g., Haier: Smart Home + Industrial Internet + Health), the engine should:
+>
+> 1. 识别主业态并推荐为默认行业
+>    Identify the primary business and recommend it as the default industry
+> 2. 明确提示用户该企业涉及多业态
+>    Explicitly notify the user that the enterprise spans multiple business lines
+> 3. 允许用户修改为其他行业
+>    Allow the user to switch to a different industry
+>
+>    示例 Example:
+>    ```
+>    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>    🏭 行业识别 Industry Detection
+>    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>
+>    客户: 海尔智家股份有限公司
+>    Client: Haier Smart Home Co., Ltd.
+>
+>    检测到行业: 制造业 — 家电/智能家居
+>    Detected industry: Manufacturing — Home Appliances / Smart Home
+>
+>    提示: 海尔集团涉及多个业态:
+>    Note: Haier Group spans multiple business lines:
+>      • 智慧家庭 (Smart Home) — 海尔智家
+>      • 工业互联网 (Industrial Internet) — 卡奥斯 COSMOPlat
+>      • 大健康 (Healthcare) — 盈康一生
+>
+>    当前按"制造业"加载行业剧本。如需调整请选择:
+>    Currently loading "Manufacturing" playbook. To change, select:
+>      A. 确认制造业 Confirm Manufacturing (推荐 Recommended)
+>      B. 切换行业 Switch Industry → [选择列表 Selection list]
+>    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+>    ```
+>
+> **手动选择回退 Manual Selection Fallback:**
+>
+> 如果无法自动识别行业，引擎退回手动选择：
+> If the industry cannot be auto-detected, the engine falls back to manual selection:
+>
+> `[选择 Choice]`
+> - A. 制造业 Manufacturing
+> - B. 零售与消费 Retail & Consumer
+> - C. 金融服务 Financial Services
+> - D. 医疗健康 Healthcare
+> - E. 专业服务 Professional Services
+> - F. 能源与公用事业 Energy & Utilities
+> - G. 交通运输与物流 Transportation & Logistics
+> - H. 房地产与建筑 Real Estate & Construction
+> - I. 其他 Other → 请注明 (please specify) `[开放 Open]`
+>
 > 选择后自动加载对应行业剧本: `references/industry-playbooks/{industry-key}.md`
 > Upon selection, auto-load industry playbook: `references/industry-playbooks/{industry-key}.md`
 > 预填内容包括: BSC 典型目标、常见痛点、L1-L2 能力地图、AI 场景默认值
 > Pre-fill includes: typical BSC targets, common pain points, L1-L2 capability map, AI scenario defaults
 
-### Q0.2 — 企业规模 Company Size
+### Q0.3 — 企业规模 Company Size
 `[必答]`
 **贵公司的员工人数大约在哪个范围？**
 *What is the approximate employee count of the company?*
+
+> **引擎行为 Engine Behavior — 自动获取优先 Auto-Detection First:**
+>
+> ⚠️ **必须联网搜索 MUST WebSearch**: 引擎**必须使用 WebSearch** 搜索员工规模，搜索词模板:
+> - `"{公司全称}" 员工人数 2025` 或 `"{公司全称}" 年报 员工`
+> - `"{公司全称}" 员工规模 招聘` 或 `"{company}" employee count headcount`
+> **严禁凭训练数据编造员工人数**。搜索无结果时必须如实告知并回退手动选择。
+>
+> 引擎应**优先自动获取**客户的员工规模信息（通过 WebSearch 联网搜索公开数据：上市公司年报、工商信息、招聘平台企业信息等），仅在搜索无结果时才回退到手动选择。
+> The engine should **prioritize auto-detection** of the client's employee count (via WebSearch for public data: annual reports, business registration, recruitment platform company profiles, etc.), and only fall back to manual selection when search yields no results.
+>
+> **场景 1 — 自动获取成功 Auto-Detection Succeeds:**
+>
+> 直接展示结果，请用户确认：
+> Display the result directly and ask user to confirm:
+>
+> ```
+> 📊 企业规模 Company Size (自动获取 Auto-detected):
+>
+>    员工人数: 约 1,500 人 (2024 年报数据)
+>    Employees: ~1,500 (2024 annual report)
+>    规模分级: 中型企业 Mid-market (500-5,000人)
+>
+>    请确认是否正确？(Y/N)
+>    Is this correct? (Y/N)
+> ```
+>
+> 用户确认即通过；用户否认则进入手动选择。
+> User confirms to proceed; user denies to enter manual selection.
+>
+> **场景 2 — 自动获取失败 Auto-Detection Fails:**
+>
+> 退回手动选择：
+> Fall back to manual selection:
+
 `[选择 Choice]`
 - A. 中小企业 SME — <500 人
 - B. 中型企业 Mid-market — 500-5,000 人
 - C. 大型企业 Enterprise — 5,000-20,000 人
 - D. 超大型企业 Large Enterprise — 20,000+ 人
 
-### Q0.3 — 顾问模式 Consultant Mode
+### Q0.4 — 顾问模式 Consultant Mode
 `[必答]`
 **请选择本次咨询的工作模式:**
 *Please select the working mode for this engagement:*
@@ -80,7 +259,7 @@
 - C. 专家模式 Expert — 最少提问，顾问提供预组装数据，引擎校验完整性。适合资深顾问已有完整客户资料。
   *Minimal questions, consultant provides pre-assembled data, engine validates completeness. For senior consultants with complete client materials.*
 
-### Q0.4 — 客户资料导入 Client Materials Import
+### Q0.5 — 客户资料导入 Client Materials Import
 `[建议]`
 **是否有现成的客户资料可供导入？（战略报告、汇报 PPT、年报、IT 架构文档等）**
 *Do you have existing client materials available for import? (strategy reports, presentations, annual reports, IT architecture docs, etc.)*
@@ -389,11 +568,60 @@
 **请列出贵公司当前使用的主要 IT 系统。**
 *Please list the major IT systems your company currently uses.*
 `[列表 List]` 期望含: 系统名称、类型 (ERP/CRM/MES/...)、上线年份、供应商
-💡 行业默认 Industry Default:
-- 制造业 Manufacturing: ERP(SAP/Oracle)、MES、PLM、WMS、SRM、QMS
-- 零售 Retail: ERP、POS/mPOS、电商平台、CRM/CDP、WMS、OMS
-- 金融 Financial Services: 核心银行系统、CRM、风控系统、反洗钱系统、网银/手机银行
-- 医疗 Healthcare: HIS、LIS、PACS、EMR/EHR、HRP、药品管理系统
+
+> ⚠️ **强制多轮联网搜索 MANDATORY Multi-Round WebSearch**:
+> 这是数据质量风险最高的问题。引擎在预填或协助回答此问题时，**必须执行 `references/intelligence-gathering.md` §2.2 定义的"IT 系统清单情报工作流"**，包括以下 5 个阶段:
+>
+> **行业关键词自动切换**: 当 Q0.2 确定行业后，Phase 2（招聘搜索）和 Phase 3（供应商验证）的搜索关键词**必须切换到 `intelligence-gathering.md` §8 对应行业的专属关键词库**（§8.1 制造业 / §8.2 零售业 / §8.3 金融服务 / §8.4 医疗健康 / §8.5 专业服务 / §8.6 能源公用 / §8.7 交通物流 / §8.8 房地产建筑），不再使用通用关键词。
+>
+> **Phase 1 — 年报/公告挖掘** (上市公司优先):
+> ```
+> WebSearch: "{公司全称}" 年报 信息化 OR 数字化 OR IT系统
+> WebSearch: "{公司全称}" 年度报告 信息技术 投入 2024 OR 2025
+> ```
+> → 如找到年报相关页面，用 WebFetch 获取完整内容提取 IT 系统细节
+>
+> **Phase 2 — 招聘信息技术栈反推**:
+> ```
+> WebSearch: "{公司全称}" 招聘 SAP OR Oracle OR 用友 OR 金蝶
+> WebSearch: "{公司全称}" 招聘 MES OR ERP OR PLM OR WMS OR CRM OR OA
+> WebSearch: "{公司全称}" 招聘 Java OR Python OR .NET OR 运维 OR DBA
+> ```
+> → 从岗位要求中提取技术关键词，反推企业在用系统
+>
+> **Phase 3 — 供应商合作关系验证**:
+> ```
+> WebSearch: "{公司全称}" 签约 OR 合作 OR 中标 ERP OR MES OR CRM
+> WebSearch: "{公司全称}" 数字化转型 OR 智能制造 案例 OR 合作
+> WebSearch: "{供应商名}" 客户案例 "{公司全称}" (反向搜索)
+> ```
+> → 从供应商新闻/案例中确认系统实施信息
+>
+> **Phase 4 — 技术领导力与架构访谈**:
+> ```
+> WebSearch: "{公司全称}" CIO OR CTO OR 信息总监 访谈 OR 分享
+> ```
+>
+> **Phase 5 — 技术指纹检测** (域名可达时):
+> ```
+> WebSearch: "{公司官网域名}" site:builtwith.com
+> WebSearch: "{公司官网域名}" technology stack
+> ```
+>
+> **汇总规则**: 搜索完成后按 `intelligence-gathering.md` §1.2 的置信度标准 ([C1]~[C4]) 标注每个系统。
+> **未找到的系统**: 用行业默认值补充但**必须标注 [C4] 未知**，不得伪装为确认数据。
+> **搜索结果为空**: 必须如实告知顾问 "联网搜索未找到该企业 IT 系统的公开信息，以下为行业默认值，请与客户确认后修正"。
+> **输出格式**: 遵循 `intelligence-gathering.md` §6.2 定义的 IT 系统清单输出格式。
+
+💡 行业默认 Industry Default (完整矩阵见 `intelligence-gathering.md` §8.x.1):
+- 制造业 Manufacturing: ERP(SAP/Oracle)、MES、PLM、WMS、SRM、QMS、SCADA/DCS、APS
+- 零售 Retail: ERP、POS/mPOS、电商中台、CRM/CDP、WMS、OMS、SCM、BI
+- 金融 Financial Services: 核心银行系统、CRM、风控系统、AML/KYC、渠道系统、数据平台、RPA
+- 医疗 Healthcare: HIS、LIS、PACS、EMR/EHR、HRP、互联网医院、CDR、药品管理系统
+- 专业服务 Professional Services: PSA、CRM、ERP/财务、KM知识管理、PM项目管理、协同办公、HCM
+- 能源与公用事业 Energy & Utilities: EMS/SCADA、DCS、GIS、OMS、AMI、EAM/APM、ERP、PI Historian
+- 交通运输与物流 Transportation & Logistics: TMS、WMS、OMS、FMS车队管理、路径优化、Track&Trace、ERP
+- 房地产与建筑 Real Estate & Construction: BIM、项目管理、成本管理、智慧工地、CRM/营销、物业PMS、BMS
 
 ### Q3.2 — 系统集成现状 System Integration Status
 `[必答]`
@@ -541,6 +769,7 @@
 | `模式切换` / `switch mode` | 在 完整发现/加速/专家 模式间切换（调整后续提问策略）Switch between Full/Accelerated/Expert mode (adjust subsequent questioning strategy) |
 | `预填查看` / `show defaults` | 显示当前行业剧本的所有预填值 Show all pre-filled values from current industry playbook |
 | `数据导入` / `import data` | 导入客户资料（战略报告、PPT、年报等），引擎解析后预填相关问题 Import client materials (strategy reports, PPT, annual reports, etc.), engine parses and pre-fills relevant questions |
+| `客户信息` / `show client` | 显示当前客户名称、所属行业、企业规模等基本信息 Show current client name, industry, company size and other basic info |
 
 ### 完整性与验证 | Completeness & Validation
 
@@ -548,6 +777,17 @@
 |---|---|
 | `完整性检查` / `check completeness` | 运行数据完整性校验，显示报告就绪度评分 Run data completeness validation, show report readiness score |
 | `缺失项` / `show gaps` | 显示所有未回答的必答/建议题目 Show all unanswered required/recommended questions |
+
+### 语言控制 | Language Control
+
+| 指令 Command | 说明 Description |
+|---|---|
+| `切换英文` / `switch to English` | 将交互语言切换为英文，后续问卷以英文展示 Switch interaction language to English |
+| `切换中文` / `switch to Chinese` | 将交互语言切换为中文，后续问卷以中文展示 Switch interaction language to Chinese |
+| `用英文生成` / `generate in English` | 仅本次成果物使用英文 Generate this deliverable in English only |
+| `用中文生成` / `generate in Chinese` | 仅本次成果物使用中文 Generate this deliverable in Chinese only |
+| `用双语生成` / `generate bilingual` | 仅本次成果物使用中英双语 Generate this deliverable bilingually |
+| `成果物语言切换` / `switch deliverable language` | 永久更改成果物默认语言 Permanently change default deliverable language |
 
 ---
 
@@ -562,7 +802,7 @@
 
 | 模块 Module | 权重 Weight | 最低通过要求 Minimum Pass |
 |---|---|---|
-| Module 0: 行业检测 Industry Detection | 5% | Q0.1 + Q0.2 + Q0.3 已回答 |
+| Module 0: 客户识别 Client Recognition | 5% | Q0.1 + Q0.2 + Q0.3 + Q0.4 已回答 |
 | Module 1: 战略解码 Strategic Decoding | 25% | 全部 `[必答]` 已回答 (Q1.1, Q1.3-Q1.7) |
 | Module 2: 瓶颈扫描 Bottleneck Scan | 20% | 全部 `[必答]` 已回答 (Q2.1, Q2.2, Q2.8) |
 | Module 2.5: AI 分诊 AI Triage | 25% | 全部 `[必答]` 已回答 (Q2.5.1-Q2.5.7) |
@@ -580,8 +820,8 @@
 
 ### 各模块最低数据要求 | Minimum Data Requirements per Module
 
-**Module 0 — 行业检测 Industry Detection:**
-- 必须: 行业选择、企业规模、顾问模式
+**Module 0 — 客户识别 Client Recognition:**
+- 必须: 客户名称确认(Q0.1)、行业确认(Q0.2)、企业规模(Q0.3)、顾问模式(Q0.4)
 - 缺失影响: 无法加载行业预填，所有问题按通用模式展开
 
 **Module 1 — 战略解码 Strategic Decoding:**
@@ -644,5 +884,5 @@
 
 ---
 
-*问卷引擎 v1.0.0 | Questionnaire Engine v1.0.0*
-*支持行业预填、顾问模式切换与完整性校验 | Supports industry pre-fill, consultant mode switching, and completeness validation*
+*问卷引擎 v1.3.0 | Questionnaire Engine v1.3.0*
+*支持客户名称智能补全、行业自动识别、行业预填、顾问模式切换、完整性校验、中文/中英双语/英文三种成果物语言、强制联网搜索与置信度标注 | Supports client name auto-completion, industry auto-detection, industry pre-fill, consultant mode switching, completeness validation, Chinese/Bilingual/English deliverable output, mandatory WebSearch and confidence tagging*

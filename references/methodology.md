@@ -1,6 +1,20 @@
 # 同辙 · StratAlign — 方法论参考
 # Methodology Reference
 
+<!-- LANGUAGE HANDLING INSTRUCTIONS:
+This file contains bilingual content (Chinese + English) for all methodology descriptions.
+The engine MUST respect the user's language selection:
+
+- CHINESE MODE: Use Chinese descriptions, Chinese indicator names, Chinese definitions.
+  Keep English abbreviations as-is (e.g., BSC, EA, TOGAF, NPV, ROI, RICE).
+- ENGLISH MODE: Use English descriptions, English indicator names, English definitions.
+  All formulas and models remain structurally the same.
+
+When generating methodology-based output (BSC tables, capability maps, ROI calculations):
+  - Chinese: All labels, headers, and narratives in Chinese
+  - English: All labels, headers, and narratives in English
+-->
+
 ---
 
 ## 一、平衡计分卡 (BSC) 四维指标体系
@@ -981,4 +995,4 @@ expected ROI:
 
 ---
 
-*Version: 1.0.0*
+*Version: 1.1.0 — 支持中英双语输出 | Bilingual output supported*

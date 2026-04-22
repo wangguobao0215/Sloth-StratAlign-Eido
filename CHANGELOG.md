@@ -6,6 +6,83 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ---
 
+## [1.4.0] - 2026-04-23
+
+### Added
+- **3 New Industry Playbooks**: Energy & Utilities (`energy-utilities.md`), Transportation & Logistics (`transportation-logistics.md`), Real Estate & Construction (`real-estate-construction.md`) — each with full 9-section structure
+- **3 New Intelligence Procedures** (§8.6-§8.8): IT system reference matrices, Phase 2/3 search keywords, vendor reverse search templates, industry-specific data sources and benchmarks for each new industry
+- Industry playbook library expanded from 5 to 8 industries
+- `_index.md` updated to v1.1.0 with all 8 industries registered
+- Q0.2 industry mapping table and manual fallback list updated for 8 industries
+- Q3.1 industry defaults expanded to cover all 8 industries
+
+### Changed
+- Intelligence-gathering engine updated to v1.2 (§8.9 cross-industry renumbered)
+- Questionnaire engine Q0.2 manual selection list replaces "Technology & Internet" placeholder with 3 real new industries
+
+---
+
+## [1.3.1] - 2026-04-23
+
+### Added
+- **5 Industry-Specific Intelligence Procedures** (§8.1-§8.5): Manufacturing, Retail, Financial Services, Healthcare, Professional Services — each with IT system reference matrix, Phase 2 job posting keywords, Phase 3 vendor reverse search, data sources & benchmarks
+- **Cross-Industry Common Systems** (§8.6): BI, CRM, OA, Finance, HR/HCM, Email/Collaboration, Network Security, Database
+- Q3.1 now auto-switches search keywords based on detected industry
+
+### Changed
+- Intelligence-gathering engine updated to v1.1
+- Financial Services §8.3: expanded from 6 to 13 system categories (added Trading System/恒生电子, Insurance Core/Guidewire, Payment/Clearing, Regulatory Reporting, API Gateway)
+- Healthcare §8.4: added Scheduling and Medical QMS categories
+- Professional Services §8.5: added T&E (Time & Expense) category
+
+---
+
+## [1.3.0] - 2026-04-23
+
+### Added
+- **Online Intelligence Gathering Protocol**: Mandatory WebSearch for all pre-filled client data
+- **Enterprise Intelligence Gathering Engine** (`intelligence-gathering.md` v1.0): Fuses OSINT structured workflows (adapted from danielmiessler/investigation 279-source catalog + 7 workflows) with web scraping best practices (adapted from mindrally/web-scraping) + China market 7-category intelligence source catalog
+- **IT System Inventory 5-Phase Workflow** (§2.2): Annual Report Mining → Job Posting Tech Stack Inference → Vendor Partnership Verification → Tech Leadership & Architecture → Technology Fingerprinting
+- **4 Search Strategy Patterns**: Landscape Scan, Recency Pulse, Upstream Tracing, Saturation Stop
+- **Confidence Rating System**: [C1] HIGH / [C2] MEDIUM / [C3] LOW / [C4] UNKNOWN with upgrade/downgrade rules
+- **Q0.1-Q0.3 Mandatory WebSearch**: Company name, industry, employee count auto-detection all require WebSearch
+
+---
+
+## [1.2.0] - 2026-04-22
+
+### Added
+- **CLIMB Digital Growth Ladder Model** (`climb-model-digital-growth-ladder.md`): 5-layer progressive maturity model (Connect → Leverage → Integrate → Model → Breakthrough) with stage assessment rubrics
+- **Bilingual Welcome Page**: Redesigned Step 1 with dual-language greeting, capability overview, and getting-started guide
+- **Client Name Auto-Complete**: Q0.1 now performs WebSearch to resolve informal names to formal registered names
+- **Industry Auto-Detection**: Q0.2 uses WebSearch on confirmed name to map to industry playbook
+- **CLIMB Model Integration**: BSC causal chain templates, digital foundation reference architecture, consultant tips enhanced with CLIMB insights across all 5 industry playbooks
+
+### Changed
+- Manufacturing playbook: Added sub-sector strategic emphasis (装备制造, 电子高科技, 汽车零部件), 5-platform digital foundation reference architecture, 4 causal chain examples, 3 additional consultant tips from CLIMB model
+- All industry playbooks: Enhanced with CLIMB-derived content
+
+---
+
+## [1.1.0] - 2026-04-22
+
+### Added
+- **Full Bilingual Support (Chinese/English)**: Language selection prompt at skill activation — user chooses Chinese or English before any other interaction
+- **Language Configuration Section in SKILL.md**: Comprehensive language rules table defining behavior for interactions, questionnaires, reports, mini cards, welcome pages, AI scoring, playbook pre-fills, and terminology
+- **Deliverable Language Selection**: Before generating each major deliverable, engine prompts user to confirm or override output language
+- **Language Switch Commands**: `切换英文`/`switch to English`, `切换中文`/`switch to Chinese`, `用英文生成`/`generate in English`, `用中文生成`/`generate in Chinese`
+- **Language Handling Instructions in Reference Files**: All reference files now include HTML comments with explicit instructions on how to extract Chinese-only or English-only content based on user's language preference
+- **Language Control Section in Questionnaire Engine**: New command group for language switching during questionnaire flow
+
+### Changed
+- Core Workflow updated: Language Selection step added before Module 0
+- Interaction Principles: "Language Consistency" added as Principle #1
+- Quick Start examples updated with bilingual activation flow
+- Report Generation flow updated with language confirmation prompt
+- All reference file version numbers bumped to 1.1.0
+
+---
+
 ## [1.0.0] - 2026-04-21
 
 ### Added

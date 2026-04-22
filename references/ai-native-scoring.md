@@ -1,6 +1,20 @@
 # 同辙 · StratAlign — AI 原生潜力评分标准
 # AI-Native Potential Scoring Criteria
 
+<!-- LANGUAGE HANDLING INSTRUCTIONS:
+This file contains bilingual content (Chinese + English) for all scoring criteria and examples.
+The engine MUST respect the user's language selection:
+
+- CHINESE MODE: Use Chinese descriptions, Chinese column headers, Chinese consultant notes.
+  Keep English abbreviations/formulas as-is (e.g., "NPV", "D1×D2", "Cs").
+- ENGLISH MODE: Use English descriptions, English column headers, English consultant notes.
+  All formulas remain the same.
+
+When generating the AI scoring matrix output:
+  - Chinese: 维度/Dimension headers in Chinese, 推荐级别 in Chinese
+  - English: Dimension headers in English, Tier recommendations in English
+-->
+
 ---
 
 ## 一、评分模型概述 | Scoring Model Overview
@@ -428,4 +442,5 @@ When a scenario score is near a tier boundary (75, 50, 25), the key question is:
 
 ---
 
-*同辙 StratAlign — AI 原生潜力评分标准 v1.0.0 | AI-Native Potential Scoring Criteria v1.0.0*
+*同辙 StratAlign — AI 原生潜力评分标准 v1.1.0 | AI-Native Potential Scoring Criteria v1.1.0*
+*支持中英双语输出 | Bilingual (Chinese/English) output supported*

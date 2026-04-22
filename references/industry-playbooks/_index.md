@@ -28,6 +28,9 @@
 | 金融服务 Financial Services | `financial-services.md` | 银行、保险、证券、基金、金融科技 |
 | 医疗健康 Healthcare | `healthcare.md` | 综合医院、专科医院、医疗集团、医药企业 |
 | 专业服务 Professional Services | `professional-services.md` | 管理咨询、IT咨询、律所、会计师事务所、工程咨询 |
+| 能源与公用事业 Energy & Utilities | `energy-utilities.md` | 电力/电网、油气、水务、新能源(风电/光伏)、矿业、燃气 |
+| 交通运输与物流 Transportation & Logistics | `transportation-logistics.md` | 货运物流、快递快运、航空运输、港口航运、仓储配送、冷链物流 |
+| 房地产与建筑 Real Estate & Construction | `real-estate-construction.md` | 住宅开发、商业地产、物业管理、工程建筑、建筑设计 |
 
 ---
 
@@ -75,4 +78,4 @@ Consultants can create custom versions based on existing playbooks:
 
 ---
 
-*行业剧本库 v1.0.0 | Industry Playbook Library v1.0.0*
+*行业剧本库 v1.1.0 | Industry Playbook Library v1.1.0*

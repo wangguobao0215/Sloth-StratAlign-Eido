@@ -108,6 +108,10 @@ Generate report:
 
 **Secondary**: Internal CIO/CDO/strategic planning (with consultant guidance)
 
+## Documentation
+
+- [User Guide](references/user-guide.md) — Complete usage manual covering feature details, workflows, best practices, and FAQ
+
 ## Version
 
 - Current: **1.0.0**

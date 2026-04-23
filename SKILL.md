@@ -1,7 +1,7 @@
 ---
-name: Sloth-StratAlign-Eido
+name: sloth-stratalign-eido
 version: 1.4.0
-description: "Strategic Alignment Accelerator for Management Consultants — from strategy decoding to actionable digital investment portfolio with AI-Native scoring, industry playbooks, and consultant-grade narrative reports."
+description: "Strategic Alignment Accelerator for Management Consultants — from strategy decoding to actionable digital investment portfolio with AI-Native scoring, industry playbooks, and consultant-grade narrative reports. Use when conducting enterprise digital transformation diagnostics, strategic alignment analysis, AI-native potential scoring, or layer-by-layer strategy decoding."
 description_zh: "管理咨询顾问的战略对齐加速器：从战略解码到可执行数字化投资组合，内置 AI 原生潜力评分、行业剧本库、顾问级叙事报告。"
 author: sloth-lab
 tags:

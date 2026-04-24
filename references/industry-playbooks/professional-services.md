@@ -336,7 +336,7 @@ ai_talent_availability: "low-medium"
 change_resistance_level: "medium"
 ```
 
-### 8.4 Module 4 — 路线图 Roadmap
+### 8.4 Module 5 — 路线图 Roadmap
 
 ```yaml
 typical_horizon: "18-24 months"

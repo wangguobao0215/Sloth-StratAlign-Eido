@@ -446,12 +446,12 @@ All type tags should be rendered as:
 
 ---
 
-## Module 2.5: AI 原生潜力分诊 | AI-Native Potential Triage
+## Module 3: AI 原生潜力分诊 | AI-Native Potential Triage
 
 > 目标: 评估关键场景的 AI 化潜力，评估实施复杂度与数据就绪度，生成评分矩阵。
 > Goal: Assess AI potential for key scenarios, evaluate implementation complexity and data readiness, generate scoring matrix.
 
-### Q2.5.1 — 候选场景识别 Candidate Scenario Identification
+### Q3.1 — 候选场景识别 Candidate Scenario Identification
 `[必答]`
 **基于前面识别的痛点，哪些业务场景您认为最有可能通过 AI/智能化解决？**
 *Based on the pain points identified above, which scenarios do you think AI could most likely solve?*
@@ -462,7 +462,7 @@ All type tags should be rendered as:
 - 金融 Financial Services: 智能风控、智能客服、反欺诈检测、智能投研、合规文档自动审阅
 - 医疗 Healthcare: AI 辅助影像诊断、智能分诊、临床决策支持、病历质控、药物相互作用预警
 
-### Q2.5.2 — 规则显性度评估 Rule Explicitness Assessment
+### Q3.2 — 规则显性度评估 Rule Explicitness Assessment
 `[必答]`
 **对于每个候选场景，其业务规则的文档化程度如何？**
 *For each candidate scenario, how well-documented are the business rules?*
@@ -471,7 +471,7 @@ All type tags should be rendered as:
 - 3 = 有部分 SOP，但不完整 Partial SOP, incomplete
 - 5 = 完整 SOP，规则已数字化 Full SOP, rules digitized
 
-### Q2.5.3 — 数据模态评估 Data Modality Assessment
+### Q3.3 — 数据模态评估 Data Modality Assessment
 `[必答]`
 **对于每个候选场景，相关数据的数字化程度如何？**
 *For each candidate scenario, how digitized is the relevant data?*
@@ -480,7 +480,7 @@ All type tags should be rendered as:
 - 3 = 有数字数据但分散在不同系统 Digital data but scattered across systems
 - 5 = 结构化实时数据流 Structured real-time data streams
 
-### Q2.5.4 — 决策频率评估 Decision Frequency Assessment
+### Q3.4 — 决策频率评估 Decision Frequency Assessment
 `[必答]`
 **对于每个候选场景，决策发生的频率是？**
 *For each candidate scenario, how frequent are the decisions?*
@@ -489,7 +489,7 @@ All type tags should be rendered as:
 - 3 = 每日运营决策 Daily operational decisions
 - 5 = 实时/秒级决策 Real-time/per-second decisions
 
-### Q2.5.5 — 数据基础设施状态 Data Infrastructure Status
+### Q3.5 — 数据基础设施状态 Data Infrastructure Status
 `[必答]`
 **贵公司整体数据基础设施处于什么状态？**
 *What is the overall state of your data infrastructure?*
@@ -498,7 +498,7 @@ All type tags should be rendered as:
 - B. 有部分数据仓库但分散 Some data warehouses but scattered → 系数 0.6
 - C. 有统一数据平台且数据质量可控 Unified data platform with quality control → 系数 1.0
 
-### Q2.5.6 — 实施复杂度评估 Implementation Complexity Assessment
+### Q3.6 — 实施复杂度评估 Implementation Complexity Assessment
 `[必答]`
 **对于每个候选 AI 场景，实施复杂度如何评估？**
 *For each candidate AI scenario, how would you assess the implementation complexity?*
@@ -515,10 +515,10 @@ All type tags should be rendered as:
 - 金融 Financial Services: 智能风控(2)、智能客服(4)、反欺诈(3)、智能投研(3)、合规审阅(3)
 - 医疗 Healthcare: AI 影像(2)、智能分诊(3)、临床决策(1)、病历质控(3)、药物预警(3)
 
-### Q2.5.7 — 场景级数据就绪度 Per-Scenario Data Readiness
+### Q3.7 — 场景级数据就绪度 Per-Scenario Data Readiness
 `[必答]`
-**对于每个候选 AI 场景，该场景所需数据的就绪程度如何？（注意：这是针对具体场景的评估，与 Q2.5.5 的整体基础设施评估互补）**
-*For each candidate AI scenario, how ready is the DATA specifically needed for that scenario? (Note: this is a per-scenario assessment, complementary to the overall infrastructure assessment in Q2.5.5)*
+**对于每个候选 AI 场景，该场景所需数据的就绪程度如何？（注意：这是针对具体场景的评估，与 Q3.5 的整体基础设施评估互补）**
+*For each candidate AI scenario, how ready is the DATA specifically needed for that scenario? (Note: this is a per-scenario assessment, complementary to the overall infrastructure assessment in Q3.5)*
 `[量表 Scale]` 每个场景 1-5 分
 - 1 = 数据不存在或完全无法获取 Data does not exist or is completely inaccessible
 - 2 = 数据存在但质量差、格式不统一、需大量清洗 Data exists but poor quality, inconsistent formats, heavy cleaning needed
@@ -532,7 +532,7 @@ All type tags should be rendered as:
 - 金融 Financial Services: 智能风控(4-交易数据充足)、智能客服(3)、反欺诈(3-需跨渠道整合)、智能投研(4)、合规审阅(3-文档需结构化)
 - 医疗 Healthcare: AI 影像(3-PACS数据有但标注少)、智能分诊(2)、临床决策(2-数据碎片化)、病历质控(3)、药物预警(4-药品数据库成熟)
 
-### Q2.5.8 — AI 团队与经验 AI Team & Experience
+### Q3.8 — AI 团队与经验 AI Team & Experience
 `[选填]`
 **贵公司是否有 AI/数据科学团队？过去是否有 AI 项目经验？**
 *Does your company have an AI/data science team? Any prior AI project experience?*
@@ -546,7 +546,7 @@ All type tags should be rendered as:
 - 金融 Financial Services: 大型银行多为 C；中小金融机构多为 B
 - 医疗 Healthcare: 大型三甲医院可能为 B 或 C；多数为 A
 
-### Q2.5.9 — AI 预期管理 AI Expectation Management
+### Q3.9 — AI 预期管理 AI Expectation Management
 `[选填]`
 **您对 AI 的预期是什么？希望 AI 在多长时间内产生可见效果？**
 *What are your AI expectations? How soon should AI produce visible results?*
@@ -558,12 +558,12 @@ All type tags should be rendered as:
 
 ---
 
-## Module 3: 覆盖分析 | Coverage Analysis
+## Module 4: 覆盖分析 | Coverage Analysis
 
 > 目标: 盘点 IT 现状，建立业务→IT 能力映射，识别空白与冗余。
 > Goal: Inventory IT landscape, build business→IT mapping, identify gaps & redundancies.
 
-### Q3.1 — IT 系统清单 IT System Inventory
+### Q4.1 — IT 系统清单 IT System Inventory
 `[必答]`
 **请列出贵公司当前使用的主要 IT 系统。**
 *Please list the major IT systems your company currently uses.*
@@ -623,7 +623,7 @@ All type tags should be rendered as:
 - 交通运输与物流 Transportation & Logistics: TMS、WMS、OMS、FMS车队管理、路径优化、Track&Trace、ERP
 - 房地产与建筑 Real Estate & Construction: BIM、项目管理、成本管理、智慧工地、CRM/营销、物业PMS、BMS
 
-### Q3.2 — 系统集成现状 System Integration Status
+### Q4.2 — 系统集成现状 System Integration Status
 `[必答]`
 **这些系统之间的集成程度如何？是否有统一的集成平台？**
 *How well integrated are these systems? Is there a unified integration platform?*
@@ -633,13 +633,13 @@ All type tags should be rendered as:
 - C. 有 ESB/iPaaS 中间件 ESB/iPaaS middleware exists
 - D. 有统一数据中台 Unified data middle platform
 
-### Q3.3 — 系统满意度 System Satisfaction
+### Q4.3 — 系统满意度 System Satisfaction
 `[建议]`
 **对现有 IT 系统的整体满意度如何？最不满意的系统是哪个？**
 *How satisfied are you with current IT systems overall? Which system are you least satisfied with?*
 `[量表 Scale]` 整体满意度 1-5 + `[开放 Open]` 最不满意的系统及原因
 
-### Q3.4 — 云化程度 Cloud Adoption Level
+### Q4.4 — 云化程度 Cloud Adoption Level
 `[建议]`
 **贵公司的 IT 系统云化程度如何？**
 *What is the cloud adoption level of your IT systems?*
@@ -649,7 +649,7 @@ All type tags should be rendered as:
 - C. 云优先 Cloud-first
 - D. 全面云原生 Fully cloud-native
 
-### Q3.5 — 数据治理成熟度 Data Governance Maturity
+### Q4.5 — 数据治理成熟度 Data Governance Maturity
 `[建议]`
 **贵公司是否有数据治理体系？数据质量如何？**
 *Does your company have a data governance system? How is data quality?*
@@ -658,13 +658,13 @@ All type tags should be rendered as:
 - 3 = 有基本规范但执行不一致 Basic standards but inconsistent execution
 - 5 = 完善的数据治理体系 Comprehensive data governance system
 
-### Q3.6 — IT 团队能力 IT Team Capability
+### Q4.6 — IT 团队能力 IT Team Capability
 `[选填]`
 **IT 团队的规模和核心能力如何？最缺什么技能？**
 *What are the IT team's size and core capabilities? What skills are most lacking?*
 `[开放 Open]` 期望含: 团队规模、核心能力、技能缺口
 
-### Q3.7 — IT 预算结构 IT Budget Structure
+### Q4.7 — IT 预算结构 IT Budget Structure
 `[选填]`
 **当前 IT 预算中，"维持运营"与"创新投入"的比例大约是？**
 *What is the approximate ratio of "keep-the-lights-on" vs "innovation" in IT budget?*
@@ -681,18 +681,18 @@ All type tags should be rendered as:
 
 ---
 
-## Module 4: 投资组合 | Investment Portfolio
+## Module 5: 投资组合 | Investment Portfolio
 
 > 目标: 形成数字化投资组合，排序优先级，生成路线图。
 > Goal: Form digital investment portfolio, prioritize, generate roadmap.
 
-### Q4.1 — 总体预算 Total Budget
+### Q5.1 — 总体预算 Total Budget
 `[必答]`
 **未来 12-18 个月，可用于数字化转型的总预算大约是多少？**
 *What is the approximate total budget for digital transformation in the next 12-18 months?*
 `[数值 Numeric]` 单位: 万元 (10K CNY) 或 等值货币
 
-### Q4.2 — 预算分配倾向 Budget Allocation Preference
+### Q5.2 — 预算分配倾向 Budget Allocation Preference
 `[建议]`
 **您倾向于如何分配预算？**
 *How do you prefer to allocate the budget?*
@@ -706,7 +706,7 @@ All type tags should be rendered as:
 - 金融 Financial Services: 通常 A 或 C — 核心系统升级往往是大项目
 - 医疗 Healthcare: 通常 B 到 C — 分阶段推进，降低风险
 
-### Q4.3 — 风险偏好 Risk Appetite
+### Q5.3 — 风险偏好 Risk Appetite
 `[建议]`
 **贵公司对数字化项目的风险容忍度如何？**
 *What is your company's risk tolerance for digital projects?*
@@ -716,7 +716,7 @@ All type tags should be rendered as:
 - C. 激进 Aggressive — 愿意尝试前沿技术
 *Hint: Conservative / Moderate / Aggressive*
 
-### Q4.4 — 期望见效时间 Expected Time to Value
+### Q5.4 — 期望见效时间 Expected Time to Value
 `[必答]`
 **您期望多长时间看到第一个数字化项目的成果？**
 *How soon do you expect to see results from the first digital project?*
@@ -725,7 +725,7 @@ All type tags should be rendered as:
 - B. 6 个月内 Within 6 months
 - C. 12 个月内 Within 12 months
 
-### Q4.5 — 外部资源 External Resources
+### Q5.5 — 外部资源 External Resources
 `[建议]`
 **是否考虑引入外部合作伙伴 (咨询公司、SI、ISV)？**
 *Are you considering bringing in external partners (consultants, SI, ISV)?*
@@ -734,7 +734,7 @@ All type tags should be rendered as:
 - B. 核心自研 + 部分外包 Core in-house + partial outsourcing
 - C. 以外部合作为主 Primarily external partnerships
 
-### Q4.6 — 成功标准 Success Criteria
+### Q5.6 — 成功标准 Success Criteria
 `[建议]`
 **您如何定义这次数字化转型"成功"？最关键的 1-2 个指标是什么？**
 *How do you define "success" for this digital transformation? What are the 1-2 most critical metrics?*
@@ -805,9 +805,9 @@ All type tags should be rendered as:
 | Module 0: 客户识别 Client Recognition | 5% | Q0.1 + Q0.2 + Q0.3 + Q0.4 已回答 |
 | Module 1: 战略解码 Strategic Decoding | 25% | 全部 `[必答]` 已回答 (Q1.1, Q1.3-Q1.7) |
 | Module 2: 瓶颈扫描 Bottleneck Scan | 20% | 全部 `[必答]` 已回答 (Q2.1, Q2.2, Q2.8) |
-| Module 2.5: AI 分诊 AI Triage | 25% | 全部 `[必答]` 已回答 (Q2.5.1-Q2.5.7) |
-| Module 3: 覆盖分析 Coverage Analysis | 15% | 全部 `[必答]` 已回答 (Q3.1, Q3.2) |
-| Module 4: 投资组合 Investment Portfolio | 10% | 全部 `[必答]` 已回答 (Q4.1, Q4.4) |
+| Module 3: AI 分诊 AI Triage | 25% | 全部 `[必答]` 已回答 (Q3.1-Q3.7) |
+| Module 4: 覆盖分析 Coverage Analysis | 15% | 全部 `[必答]` 已回答 (Q4.1, Q4.2) |
+| Module 5: 投资组合 Investment Portfolio | 10% | 全部 `[必答]` 已回答 (Q5.1, Q5.4) |
 
 ### 就绪度等级 | Readiness Levels
 
@@ -834,20 +834,20 @@ All type tags should be rendered as:
 - 缺失影响: 无法进行瓶颈分析和优先级排序
 - 建议补充: 信息断点(Q2.3)、人工依赖(Q2.4) — 提升自动化机会识别
 
-**Module 2.5 — AI 分诊 AI Triage:**
-- 必须: 候选场景(Q2.5.1)、规则显性度(Q2.5.2)、数据模态(Q2.5.3)、决策频率(Q2.5.4)、数据基础设施(Q2.5.5)、实施复杂度(Q2.5.6)、场景数据就绪度(Q2.5.7)
+**Module 3 — AI 分诊 AI Triage:**
+- 必须: 候选场景(Q3.1)、规则显性度(Q3.2)、数据模态(Q3.3)、决策频率(Q3.4)、数据基础设施(Q3.5)、实施复杂度(Q3.6)、场景数据就绪度(Q3.7)
 - 缺失影响: 无法生成 AI 潜力评分矩阵和优先级排序
-- 建议补充: AI 团队(Q2.5.8) — 提升实施可行性评估准确度
+- 建议补充: AI 团队(Q3.8) — 提升实施可行性评估准确度
 
-**Module 3 — 覆盖分析 Coverage Analysis:**
-- 必须: IT 系统清单(Q3.1)、集成现状(Q3.2)
+**Module 4 — 覆盖分析 Coverage Analysis:**
+- 必须: IT 系统清单(Q4.1)、集成现状(Q4.2)
 - 缺失影响: 无法建立 IT 能力映射和空白分析
-- 建议补充: 数据治理(Q3.5)、云化程度(Q3.4) — 提升技术架构评估质量
+- 建议补充: 数据治理(Q4.5)、云化程度(Q4.4) — 提升技术架构评估质量
 
-**Module 4 — 投资组合 Investment Portfolio:**
-- 必须: 总体预算(Q4.1)、期望见效时间(Q4.4)
+**Module 5 — 投资组合 Investment Portfolio:**
+- 必须: 总体预算(Q5.1)、期望见效时间(Q5.4)
 - 缺失影响: 无法生成投资组合和路线图
-- 建议补充: 风险偏好(Q4.3)、成功标准(Q4.6) — 提升路线图可行性
+- 建议补充: 风险偏好(Q5.3)、成功标准(Q5.6) — 提升路线图可行性
 
 ### 缺失数据警告 | Missing Data Warnings
 
@@ -870,14 +870,14 @@ All type tags should be rendered as:
 ✅ Module 0: 100% — 完整 Complete
 ✅ Module 1: 90%  — Q1.8 未回答 (建议)
 ✅ Module 2: 85%  — Q2.3, Q2.6 未回答 (建议/选填)
-⚠️ Module 2.5: 70% — Q2.5.6 未回答 (必答!)
-✅ Module 3: 75%  — Q3.4, Q3.6 未回答 (建议/选填)
-⚠️ Module 4: 60%  — Q4.3, Q4.6 未回答 (建议)
+⚠️ Module 3: 70% — Q3.6 未回答 (必答!)
+✅ Module 4: 75%  — Q4.4, Q4.6 未回答 (建议/选填)
+⚠️ Module 5: 60%  — Q5.3, Q5.6 未回答 (建议)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ⚠️ 关键缺失 Critical Gaps:
-   - Q2.5.6 实施复杂度评估 (必答) — 影响 AI 优先级排序
+   - Q3.6 实施复杂度评估 (必答) — 影响 AI 优先级排序
 建议 Recommendation:
-   - 补充 Q2.5.6 后可提升至 85%+
+   - 补充 Q3.6 后可提升至 85%+
    - 当前可生成报告，AI 分诊章节将标注数据不足
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```

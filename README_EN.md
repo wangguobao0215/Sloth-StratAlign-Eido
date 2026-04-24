@@ -59,7 +59,7 @@ Sloth-StratAlign-Eido/
 ├── SKILL.md                          # Skill definition (main entry)
 ├── references/
 │   ├── methodology.md                # BSC + EA + hypothesis register + L1-L2 + app health + ROI
-│   ├── questionnaire-engine.md       # Six-module questionnaire engine (Module 0-4)
+│   ├── questionnaire-engine.md       # Six-module questionnaire engine (Module 0-5)
 │   ├── ai-native-scoring.md          # 4D weighted AI scoring criteria
 │   ├── report-template.md            # Narrative diagnostic report template
 │   ├── report-template-mini.md       # Mini diagnostic card (200 words)

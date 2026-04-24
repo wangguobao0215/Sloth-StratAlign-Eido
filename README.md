@@ -63,7 +63,7 @@ Sloth-StratAlign-Eido/
 ├── SKILL.md                          # 技能定义 (主入口)
 ├── references/
 │   ├── methodology.md                # BSC + EA + 假设清单 + L1-L2 + 应用健康度 + ROI
-│   ├── questionnaire-engine.md       # 六模块问卷引擎 (Module 0-4)
+│   ├── questionnaire-engine.md       # 六模块问卷引擎 (Module 0-5)
 │   ├── ai-native-scoring.md          # 四维加权 AI 评分标准
 │   ├── report-template.md            # 叙事诊断报告模板
 │   ├── report-template-mini.md       # 迷你诊断卡 (200 词)

@@ -48,7 +48,7 @@ Each playbook contains 9 standard sections:
 | 五 | L1-L2 能力地图 Capability Map | 业务能力分解 (L1 一级域 + L2 二级能力) |
 | 六 | AI 机会目录 AI Opportunity Catalog | 7 个预评分 AI 应用场景 (D1-D4 四维评分) |
 | 七 | BSC 基准指标 BSC Benchmarks | 四维基准指标及目标值 |
-| 八 | 问卷预填默认值 Questionnaire Pre-fill Defaults | Module 1-4 各模块的预设默认值 (YAML 格式) |
+| 八 | 问卷预填默认值 Questionnaire Pre-fill Defaults | Module 1-5 各模块的预设默认值 (YAML 格式) |
 | 九 | 顾问贴士 Consultant Tips | 行业特有的咨询注意事项和常见陷阱 |
 
 ---
@@ -67,7 +67,7 @@ Each playbook contains 9 standard sections:
 6. **修订 L1-L2 能力地图**：调整业务能力分解，匹配客户的组织架构
 7. **预评分 AI 场景**：基于行业知识为 7 个 AI 应用场景进行 D1-D4 四维预评分
 8. **修改 BSC 基准指标**：更新四维基准指标及目标值
-9. **设置问卷预填默认值**：为 Module 1-4 各模块配置 YAML 格式的预设默认值
+9. **设置问卷预填默认值**：为 Module 1-5 各模块配置 YAML 格式的预设默认值
 10. **添加顾问贴士**：记录行业特有的咨询注意事项和常见陷阱
 11. **保存并加载**：保存为新文件（`custom-industry-name.md`），在 Module 0 中选择"自定义剧本"并指定文件路径
 
@@ -97,7 +97,7 @@ Each playbook contains 9 standard sections:
    - BSC 基准指标（用于该板块的目标设定）
    - AI 机会目录（用于该板块的 AI 场景识别）
    - IT 基准模板（用于该板块的系统盘点）
-3. **跨板块整合**：在 Module 4 投资组合阶段，将各板块的推荐项目合并到统一的投资组合中，标注项目所属板块
+3. **跨板块整合**：在 Module 5 投资组合阶段，将各板块的推荐项目合并到统一的投资组合中，标注项目所属板块
 4. **报告输出**：诊断报告中按板块分别呈现分析结果，并在 Executive Summary 中给出跨板块协同建议
 
 ### 操作示例

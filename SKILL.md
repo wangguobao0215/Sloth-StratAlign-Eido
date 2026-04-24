@@ -277,21 +277,21 @@ StratAlign is a **strategic alignment accelerator for management consultants**. 
     │  └─ 🆕 根因 vs 症状分类 Root Cause vs Symptom
     │
     ▼
-[Module 2.5] AI 原生潜力分诊 AI-Native Triage
+[Module 3] AI 原生潜力分诊 AI-Native Triage
     │  ├─ 🆕 四维加权评分 (规则×数据×频率×实施复杂度)
     │  ├─ 🆕 场景级数据系数 (替代全局系数)
     │  ├─ 🆕 敏感性分析 Sensitivity Analysis
     │  └─ 场景排序 & Top-N 推荐
     │
     ▼
-[Module 3] 覆盖分析 Coverage Analysis
+[Module 4] 覆盖分析 Coverage Analysis
     │  ├─ IT 系统现状盘点
     │  ├─ 🆕 L1-L2 能力热力图 Capability Heat Map
     │  ├─ 🆕 应用组合健康度四象限 App Portfolio Health Quadrant
     │  └─ 覆盖率计算 & 空白标记
     │
     ▼
-[Module 4] 投资组合 Investment Portfolio
+[Module 5] 投资组合 Investment Portfolio
     │  ├─ 项目分组 (快赢/战略/基础)
     │  ├─ 🆕 完整 ROI 计算 (成本分解 + 收益量化 + NPV + 回收期)
     │  ├─ 🆕 现金流时间线 Cash Flow Timeline
@@ -410,7 +410,7 @@ StratAlign is a **strategic alignment accelerator for management consultants**. 
 | 文件 File | 说明 Description |
 |---|---|
 | `references/methodology.md` | 方法论：BSC + EA + 假设清单 + L1-L2 分层 + 应用健康度 + ROI 模板 |
-| `references/questionnaire-engine.md` | 问卷引擎：Module 0-4 + 顾问模式 + 行业预填 + 完整性验证 |
+| `references/questionnaire-engine.md` | 问卷引擎：Module 0-5 + 顾问模式 + 行业预填 + 完整性验证 |
 | `references/ai-native-scoring.md` | AI 评分：四维加权模型 + 敏感性分析 + 顾问指南 |
 | `references/report-template.md` | 报告模板：Executive Summary + 叙事结构 + 风险情景 + ROI 过程 |
 | `references/term-dictionary.md` | 24 术语简化词典 |
@@ -485,7 +485,7 @@ Consultant: Generate diagnostic report
 
 ```
 顾问: 直接做 AI 场景评估
-→ 进入 Module 2.5，使用四维加权模型评分
+→ 进入 Module 3，使用四维加权模型评分
 ```
 
 ---
@@ -536,13 +536,13 @@ Consultant: Generate diagnostic report
 | Q0.1 客户名称补全 | 企业正式注册名称 | §2.1 Phase 1: 实体识别 |
 | Q0.2 行业识别 | 行业分类、主营业务 | §2.1 Phase 2: 行业定位 |
 | Q0.3 员工规模 | 员工人数、企业规模 | §2.1 Phase 3: 企业规模 |
-| Q3.1 IT系统清单 | 在用IT系统、技术栈 | **§2.2 完整5阶段工作流（强制）** |
+| Q4.1 IT系统清单 | 在用IT系统、技术栈 | **§2.2 完整5阶段工作流（强制）** |
 | Q1.4 财务目标 | 营收、利润等 | §2.3: 财务情报工作流 |
 | 全模块预填 | 行业趋势、竞品动态 | §2.4 + §4.2 景观扫描 |
 
 ### 搜索质量规则 | Search Quality Rules
 
-1. **至少 3 轮搜索**: Q3.1 IT系统清单必须执行至少3轮不同角度的搜索
+1. **至少 3 轮搜索**: Q4.1 IT系统清单必须执行至少3轮不同角度的搜索
 2. **时效性优先**: 优先使用最近 2 年内的数据，超过 3 年标注 `(⚠️ 数据可能过时)`
 3. **多源交叉验证**: 重要结论应有至少 2 个独立来源印证才能标 [C1]
 4. **明确标注猜测**: 推测内容必须标注 `[C3] 行业推断`，不得伪装成确认事实
@@ -565,12 +565,12 @@ Consultant: Generate diagnostic report
   - 🆕 **3个新行业情报规程** (`intelligence-gathering.md` §8.6-§8.8): 能源/交通物流/房地产建筑各配行业IT系统参考矩阵、招聘关键词库、供应商反向搜索、专属数据源与基准值
   - ✅ 行业剧本库索引更新至 v1.1.0，情报引擎更新至 v1.2
 - v1.3.1 内容:
-  - 5大行业专属情报规程、跨行业通用系统参考、Q3.1 行业关键词自动切换
+  - 5大行业专属情报规程、跨行业通用系统参考、Q4.1 行业关键词自动切换
 - v1.3.0 内容:
   - 联网情报采集协议、企业情报采集引擎、IT系统5阶段搜索、置信度标注体系
 - 上一版本 Previous: 1.3.1
 - 历史版本:
-  - v1.3.1: 5大行业专属情报规程、跨行业通用系统参考、Q3.1行业关键词自动切换
+  - v1.3.1: 5大行业专属情报规程、跨行业通用系统参考、Q4.1行业关键词自动切换
   - v1.3.0: 联网情报采集协议、OSINT引擎、IT系统5阶段搜索、4搜索策略模式、置信度体系
   - v1.2.0: 双语欢迎页面、语言分层、客户名称补全、行业自动识别、CLIMB 模型集成
   - v1.1.0: AI 四维评分、战略假设清单、L1-L2 能力分层、ROI 模板、行业剧本库

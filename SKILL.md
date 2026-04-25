@@ -32,11 +32,10 @@ tags:
 
 Upon activation, **Step 1** — display the welcome page (always bilingual):
 
+<p align="center"><img src="https://raw.githubusercontent.com/wangguobao0215/Sloth-StratAlign-Eido/main/assets/qrcode.jpg" width="120" /><br/><sub>扫码关注 <b>树懒老K</b> · 获取更多 AI 技能 | Scan to follow Sloth-Lab</sub></p>
+
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  ![qrcode](https://raw.githubusercontent.com/wangguobao0215/Sloth-StratAlign-Eido/main/assets/qrcode.jpg)
-  扫码关注 树懒老K · 获取更多 AI 技能 | Scan to follow Sloth-Lab
 
   深略 · StratAlign — 战略对齐加速器 | Strategic Alignment Accelerator
 
